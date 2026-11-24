@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дискретті математика және математикалық логика — 180 Сұрақ Quizizz Тренажер</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-elev: #10172b;
+      --card: #141c33;
+      --card-soft: rgba(20, 28, 51, 0.9);
+      --border: #243152;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --cyan: #38bdf8;
+      --violet: #8b5cf6;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --yellow-hl: #fde047;
+      --rose: #ef4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 6%, rgba(139, 92, 246, 0.18), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(56, 189, 248, 0.16), transparent 34%),
+        radial-gradient(circle at 50% 94%, rgba(16, 185, 129, 0.08), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-bottom: 56px;
+    }
+
+    button, input, select { font-family: inherit; }
+
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .hidden { display: none !important; }
+
+    /* HEADER */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(11, 16, 32, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      color: #091020;
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding: 9px 13px;
+      border-radius: 13px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.28);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 0.98rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: 0.4px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 12px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.13s ease, filter 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:active:not(:disabled) { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.42; cursor: not-allowed; }
+
+    .btn-cyan {
+      background: linear-gradient(135deg, var(--cyan), #0ea5e9);
+      color: #07101f;
+      box-shadow: 0 6px 16px rgba(56, 189, 248, 0.25);
+    }
+    .btn-cyan:hover:not(:disabled) { filter: brightness(1.08); }
+
+    .btn-violet {
+      background: linear-gradient(135deg, var(--violet), #6d28d9);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3);
+    }
+    .btn-violet:hover:not(:disabled) { filter: brightness(1.08); }
+
+    .btn-amber {
+      background: linear-gradient(135deg, var(--amber), #ea580c);
+      color: #0b1020;
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25);
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, var(--green), #059669);
+      color: #04130d;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.16);
+      border-color: rgba(239, 68, 68, 0.42);
+      color: #fca5a5;
+    }
+    .btn-danger:hover:not(:disabled) { background: rgba(239, 68, 68, 0.28); }
+
+    .btn-ghost {
+      background: var(--card);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn-ghost:hover:not(:disabled) { border-color: var(--cyan); background: #1a2542; }
+
+    .btn-sound-on {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+    }
+
+    .btn-sound-off {
+      background: var(--card);
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+
+    /* KPI STATS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.55px;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stat-value {
+      font-size: 1.72rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .stat-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 7px;
+      border-radius: 99px;
+      background: #0a0f1f;
+      overflow: hidden;
+      margin-top: 3px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+      transition: width 0.35s ease;
+    }
+
+    .err-pill {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.42);
+      padding: 2px 9px;
+      border-radius: 99px;
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .err-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    /* MODE BAR */
+    .mode-bar {
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .mode-pills {
+      display: flex;
+      gap: 6px;
+      background: #0a0f1f;
+      padding: 5px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .mode-btn {
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .mode-btn.active-game {
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      color: #081020;
+    }
+
+    .mode-btn.active-study {
+      background: linear-gradient(135deg, var(--green), #14b8a6);
+      color: #051610;
+    }
+
+    .mode-hint {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      padding: 0 4px;
+    }
+
+    /* TABS */
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      padding: 13px 12px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      font-weight: 800;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.16s;
+      text-align: center;
+    }
+
+    .tab-btn:hover { border-color: var(--cyan); color: #fff; }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--violet), #4f46e5);
+      border-color: rgba(196, 181, 253, 0.5);
+      color: #fff;
+      box-shadow: 0 8px 22px rgba(109, 40, 217, 0.32);
+    }
+
+    /* CARDS GRID */
+    .section-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #e2e8f0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.36);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .badge-violet { background: rgba(139, 92, 246, 0.2); color: #ddd6fe; border: 1px solid rgba(139, 92, 246, 0.4); }
+    .badge-cyan   { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.36); }
+    .badge-green  { background: rgba(16, 185, 129, 0.16); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-amber  { background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.42); }
+    .badge-rose   { background: rgba(239, 68, 68, 0.2); color: #fecaca; border: 1px solid rgba(239, 68, 68, 0.42); }
+
+    .card-title { font-size: 1.04rem; font-weight: 900; color: #fff; line-height: 1.3; }
+    .card-desc  { font-size: 0.81rem; color: var(--muted); line-height: 1.45; }
+    .card-btns  { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    /* EXAM PANEL */
+    .exam-box {
+      max-width: 680px;
+      margin: 8px auto;
+      background: var(--card);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      border-radius: 24px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .exam-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .exam-spec {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px;
+    }
+
+    /* BANK & SEARCH */
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .search-input, .filter-select {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: #fff;
+      border-radius: 14px;
+      padding: 12px 15px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-input { flex: 1; min-width: 220px; }
+    .search-input:focus, .filter-select:focus { border-color: var(--cyan); }
+
+    .bank-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .bank-ans-yellow {
+      background: rgba(250, 204, 21, 0.16);
+      border: 1.5px solid rgba(250, 204, 21, 0.65);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #fef08a;
+      font-weight: 800;
+      font-size: 0.94rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .math-expr {
+      font-family: "Cambria Math", "Times New Roman", Georgia, serif;
+      font-size: 1.06em;
+      letter-spacing: 0.2px;
+    }
+
+    /* QUIZ VIEW */
+    .quiz-hud {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .hud-left, .hud-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hud-pill {
+      padding: 6px 12px;
+      border-radius: 11px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+    }
+
+    .pill-streak { background: rgba(245, 158, 11, 0.18); border-color: rgba(245, 158, 11, 0.45); color: #fcd34d; }
+    .pill-score  { background: rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.45); color: #ddd6fe; }
+    .pill-timer  { background: rgba(56, 189, 248, 0.16); border-color: rgba(56, 189, 248, 0.45); color: #7dd3fc; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .pill-timer.danger { background: rgba(239, 68, 68, 0.24); border-color: rgba(239, 68, 68, 0.65); color: #fecaca; }
+
+    .quiz-progress-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 99px;
+      background: #0e1528;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--violet), var(--cyan));
+      transition: width 0.26s ease;
+    }
+
+    /* QUESTION CARD */
+    .q-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    .q-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .q-text {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.48;
+    }
+
+    .q-formula-box {
+      background: #0b1124;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 13px 16px;
+      color: #e0f2fe;
+      font-family: "Cambria Math", "Times New Roman", Georgia, serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    /* SVG SCHEMATIC WRAPPER */
+    .svg-stage {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+
+    .svg-paper {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 10px 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
+    }
+
+    .svg-paper svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* OPTION TILES (TEXT & SVG) */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .opt-tile {
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 68px;
+      border: 2px solid transparent;
+      transition: transform 0.13s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    }
+
+    .opt-tile.is-svg-opt {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 10px 12px;
+      gap: 8px;
+      background: #10182e;
+      border-color: #2b3b63;
+    }
+
+    .opt-tile.is-svg-opt:hover:not(:disabled) {
+      border-color: var(--cyan);
+      background: #162242;
+    }
+
+    .opt-svg-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .opt-tile:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.36);
+    }
+
+    .opt-tile:disabled { cursor: default; }
+
+    .opt-0 { background: linear-gradient(135deg, #2563eb, #1d4ed8); border-color: rgba(147, 197, 253, 0.32); }
+    .opt-1 { background: linear-gradient(135deg, #0d9488, #0f766e); border-color: rgba(94, 234, 212, 0.32); }
+    .opt-2 { background: linear-gradient(135deg, #d97706, #b45309); border-color: rgba(253, 224, 71, 0.32); }
+    .opt-3 { background: linear-gradient(135deg, #7c3aed, #6d28d9); border-color: rgba(216, 180, 254, 0.32); }
+
+    .opt-key {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .opt-label {
+      flex: 1;
+      word-break: break-word;
+      line-height: 1.38;
+    }
+
+    .opt-correct {
+      background: linear-gradient(135deg, #10b981, #059669) !important;
+      border-color: #a7f3d0 !important;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.38) !important;
+      opacity: 1 !important;
+    }
+
+    .opt-wrong {
+      background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+      border-color: #fecaca !important;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.38) !important;
+      opacity: 1 !important;
+    }
+
+    .opt-dim {
+      opacity: 0.35;
+      filter: grayscale(0.35);
+    }
+
+    .opt-exam-chosen {
+      outline: 3px solid var(--yellow-hl);
+      box-shadow: 0 0 0 5px rgba(253, 224, 71, 0.28);
+    }
+
+    .feedback-bar {
+      border-radius: 14px;
+      padding: 13px 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .fb-ok   { background: rgba(16, 185, 129, 0.16); border: 1px solid rgba(16, 185, 129, 0.45); color: #a7f3d0; }
+    .fb-err  { background: rgba(239, 68, 68, 0.16); border: 1px solid rgba(239, 68, 68, 0.45); color: #fecaca; }
+    .fb-warn { background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(245, 158, 11, 0.45); color: #fde68a; }
+
+    .q-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    /* NAVIGATOR */
+    .study-nav-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-top: 14px;
+    }
+
+    .nav-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      max-height: 165px;
+      overflow-y: auto;
+    }
+
+    .nav-dot {
+      width: 35px;
+      height: 35px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-dot.cur    { border-color: var(--amber); box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.35); color: #fff; }
+    .nav-dot.ok     { background: rgba(16, 185, 129, 0.25); border-color: var(--green); color: #a7f3d0; }
+    .nav-dot.bad    { background: rgba(239, 68, 68, 0.25); border-color: var(--rose); color: #fecaca; }
+    .nav-dot.picked { background: rgba(56, 189, 248, 0.25); border-color: var(--cyan); color: #e0f2fe; }
+
+    /* RESULTS VIEW */
+    .result-card {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .res-box {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 10px;
+    }
+
+    .res-num { font-size: 1.65rem; font-weight: 900; margin-top: 4px; }
+
+    .review-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    /* MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(5, 8, 16, 0.78);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-card {
+      background: var(--card);
+      border: 1px solid #33456b;
+      border-radius: 22px;
+      max-width: 540px;
+      width: 100%;
+      padding: 22px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .modal-title { font-size: 1.05rem; font-weight: 900; color: #fff; }
+    .modal-body  { font-size: 0.9rem; color: #cbd5e1; overflow-y: auto; }
+    .modal-foot  { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+
+    .kbd-hint {
+      text-align: center;
+      font-size: 0.76rem;
+      color: #64748b;
+      margin-top: 22px;
+    }
+
+    .kbd {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #cbd5e1;
+      font-family: ui-monospace, monospace;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 820px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .tabs { grid-template-columns: repeat(2, 1fr); }
+      .options-grid { grid-template-columns: 1fr; }
+      .res-grid { grid-template-columns: repeat(2, 1fr); }
+      .exam-specs { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- STICKY HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" onclick="goHome()">
+        <div class="brand-badge">ML 180</div>
+        <div>
+          <div class="brand-sub">180 СҰРАҚ · 6 БЛОК (30×6) · QUIZIZZ ТРЕНАЖЕР</div>
+          <div class="brand-title">ДИСКРЕТТІ МАТЕМАТИКА ЖӘНЕ МАТЕМАТИКАЛЫҚ ЛОГИКА</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="soundBtn" class="btn btn-sound-on" onclick="toggleSound()">🔊 Дыбыс: Қосулы</button>
+        <button class="btn btn-cyan" onclick="goHome()">🏠 Басты бет</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ==================== DASHBOARD VIEW ==================== -->
+    <section id="dashboardView">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label"><span>База көлемі</span><span>📐</span></div>
+          <div class="stat-value">180</div>
+          <div class="stat-sub">6 блок × 30 сұрақ · SVG схемалар</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label"><span>Үздік емтихан</span><span>🏆</span></div>
+          <div id="bestExamVal" class="stat-value" style="color:var(--amber);">—</div>
+          <div class="stat-sub">Өту межесі: ≥24/30 (80%)</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label"><span>Игерілген сұрақтар</span><span id="solvedPctLabel" style="color:var(--green);">0%</span></div>
+          <div class="stat-value" style="color:var(--green);"><span id="solvedVal">0</span> <span style="font-size:0.9rem;color:var(--muted);">/ 180</span></div>
+          <div class="progress-track"><div id="solvedBar" class="progress-fill" style="width:0%;"></div></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label"><span>Қателер банкі</span><span id="errCountBadge" class="err-pill">0</span></div>
+          <div class="err-actions">
+            <button class="btn btn-amber" style="flex:1;padding:8px 10px;font-size:0.78rem;" onclick="startErrorBank()">🔄 Қатемен жұмыс</button>
+            <button class="btn btn-danger" style="padding:8px 10px;font-size:0.78rem;" title="Қателер банкін тазалау" onclick="askClearErrors()">🗑️</button>
+          </div>
+          <div class="stat-sub">Қателескен сұрақтар сақталады</div>
+        </div>
+      </div>
+
+      <!-- Mode Switcher -->
+      <div class="mode-bar">
+        <div class="mode-pills">
+          <button id="modeGameBtn" class="mode-btn active-game" onclick="setMode('game')">🎮 Ойын режимі (45с, Streak, Ұпай)</button>
+          <button id="modeStudyBtn" class="mode-btn" onclick="setMode('study')">📚 Жаттау режимі (Таймерсіз + Навигатор)</button>
+        </div>
+        <div id="modeHint" class="mode-hint">🔥 <b>Ойын режимі:</b> 45 сек таймер, жылдамдық бонусы және дұрыс жауап сериясы.</div>
+      </div>
+
+      <!-- 4 Main Tabs -->
+      <nav class="tabs">
+        <button id="tab-blocks" class="tab-btn active" onclick="switchTab('blocks')">📦 6 Блок (30-30-дан)</button>
+        <button id="tab-schemes" class="tab-btn" onclick="switchTab('schemes')">🧩 Схемалар &amp; Вентильдер</button>
+        <button id="tab-exam" class="tab-btn" onclick="switchTab('exam')">🎓 Емтихан (30 сұрақ, 45 мин)</button>
+        <button id="tab-bank" class="tab-btn" onclick="switchTab('bank')">🔍 180 База &amp; Шпаргалка</button>
+      </nav>
+
+      <!-- TAB 1: 6 BLOCKS (30x6) -->
+      <div id="panel-blocks">
+        <div class="section-toolbar">
+          <div class="section-title">Барлық 180 сұрақ 30-30-дан 6 блокқа бөлінген</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-violet" onclick="startMarathon(false)">⚡ Толық 180 Марафон</button>
+            <button class="btn btn-ghost" onclick="startMarathon(true)">🔀 180 Аралас</button>
+          </div>
+        </div>
+        <div id="blocksGrid" class="cards-grid"></div>
+      </div>
+
+      <!-- TAB 2: SCHEMES & CATEGORIES -->
+      <div id="panel-schemes" class="hidden">
+        <div class="section-toolbar">
+          <div class="section-title">Тақырыптық іріктеу: Релелік схемалар, Логикалық вентильдер және Формулалар</div>
+        </div>
+        <div id="schemesGrid" class="cards-grid"></div>
+      </div>
+
+      <!-- TAB 3: EXAM SIMULATOR -->
+      <div id="panel-exam" class="hidden">
+        <div class="exam-box">
+          <div style="font-size:3rem;margin-bottom:8px;">🎓</div>
+          <h2 style="font-size:1.55rem;font-weight:900;color:#fff;">Емтихан Симуляторы — 30 Сұрақ</h2>
+          <p style="font-size:0.9rem;color:#cbd5e1;margin-top:8px;">
+            180 сұрақтың ішінен кездейсоқ <b>30 сұрақ</b> іріктеледі. Уақыт шектеуі — <b>45 минут</b>.
+            Сұрақтар арасында еркін өтіп, <b>🚩 белгі</b> қоюға және картадан тексеруге болады.
+          </p>
+          <div class="exam-specs">
+            <div class="exam-spec">
+              <div class="stat-sub">Сұрақ саны</div>
+              <div style="font-size:1.3rem;font-weight:900;color:#fff;margin-top:3px;">30 сұрақ</div>
+            </div>
+            <div class="exam-spec">
+              <div class="stat-sub">Уақыт</div>
+              <div style="font-size:1.3rem;font-weight:900;color:var(--cyan);margin-top:3px;">45 минут</div>
+            </div>
+            <div class="exam-spec">
+              <div class="stat-sub">Өту межесі</div>
+              <div style="font-size:1.3rem;font-weight:900;color:var(--green);margin-top:3px;">≥ 24 / 30</div>
+            </div>
+          </div>
+          <button class="btn btn-amber" style="padding:14px 28px;font-size:1rem;" onclick="startExam()">🚀 Емтиханды бастау (30 сұрақ)</button>
+        </div>
+      </div>
+
+      <!-- TAB 4: 180 DATABASE & CHEATSHEET -->
+      <div id="panel-bank" class="hidden">
+        <div class="search-bar">
+          <input id="bankSearch" type="text" class="search-input" oninput="renderBank()" placeholder="🔍 Нөмір (1–180), Zhegalkin, PCNF, PDNF, conjugate, relaying, circuit, tautology..." />
+          <select id="bankFilter" class="filter-select" onchange="renderBank()">
+            <option value="all">Барлық 180 сұрақ</option>
+            <option value="b1">1-Блок (1–30)</option>
+            <option value="b2">2-Блок (31–60)</option>
+            <option value="b3">3-Блок (61–90)</option>
+            <option value="b4">4-Блок (91–120)</option>
+            <option value="b5">5-Блок (121–150)</option>
+            <option value="b6">6-Блок (151–180)</option>
+            <option value="relay">⚡ Релелік схемалар</option>
+            <option value="circuit">🔌 Логикалық вентильдер</option>
+            <option value="zhegalkin">🧮 Жегалкин / PCNF / PDNF</option>
+          </select>
+        </div>
+        <div id="bankCount" class="stat-sub" style="margin-bottom:10px;"></div>
+        <div id="bankList"></div>
+      </div>
+
+      <div class="kbd-hint">
+        Пернетақта: <span class="kbd">1–4</span> немесе <span class="kbd">A–D</span> — жауап таңдау •
+        <span class="kbd">Enter</span> / <span class="kbd">Space</span> — келесі •
+        <span class="kbd">←</span> <span class="kbd">→</span> — ауысу
+      </div>
+    </section>
+
+    <!-- ==================== QUIZ / EXAM VIEW ==================== -->
+    <section id="quizView" class="hidden">
+      <div class="quiz-hud">
+        <div class="hud-left">
+          <button class="btn btn-ghost" style="padding:7px 12px;" onclick="askExitQuiz()">← Шығу</button>
+          <div>
+            <div id="quizTitle" style="font-size:0.86rem;font-weight:900;color:var(--cyan);">1-Блок</div>
+            <div id="quizCounter" style="font-size:0.76rem;color:var(--muted);font-weight:700;">Сұрақ 1 / 30</div>
+          </div>
+        </div>
+        <div class="hud-right">
+          <div id="streakPill" class="hud-pill pill-streak hidden">🔥 0</div>
+          <div id="scorePill" class="hud-pill pill-score">⭐ 0 ұпай</div>
+          <div id="timerPill" class="hud-pill pill-timer">⏱ 45с</div>
+          <button id="flagBtn" class="btn btn-ghost hidden" style="padding:7px 11px;font-size:0.8rem;" onclick="toggleFlag()">🚩 Белгілеу</button>
+          <button class="btn btn-ghost" style="padding:7px 11px;font-size:0.8rem;" onclick="openMapModal()">🗺️ Карта</button>
+        </div>
+      </div>
+
+      <div class="quiz-progress-track">
+        <div id="quizProgressFill" class="quiz-progress-fill" style="width:0%;"></div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <span id="qIdBadge" class="badge badge-violet">#1</span>
+            <span id="qBlockBadge" class="badge badge-cyan">1-Блок</span>
+            <span id="qCatBadge" class="badge badge-amber">Логика</span>
+          </div>
+          <span id="qModeTag" class="stat-sub"></span>
+        </div>
+
+        <h2 id="qText" class="q-text"></h2>
+        <div id="qFormulaWrap" class="hidden q-formula-box"></div>
+        <div id="qVisualWrap" class="hidden svg-stage"></div>
+
+        <div id="optionsGrid" class="options-grid"></div>
+
+        <div id="feedbackBar" class="feedback-bar hidden">
+          <div id="feedbackMsg"></div>
+          <button class="btn btn-cyan" style="padding:8px 14px;" onclick="nextQ()">Келесі →</button>
+        </div>
+
+        <div class="q-footer">
+          <button id="prevBtn" class="btn btn-ghost" onclick="prevQ()">← Алдыңғы</button>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-danger" onclick="askFinishQuiz()">Аяқтау</button>
+            <button id="nextBtn" class="btn btn-cyan" onclick="nextQ()">Келесі →</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="studyNavBox" class="study-nav-box hidden">
+        <div class="stat-label"><span>Сұрақтар навигаторы</span><span id="navSummary"></span></div>
+        <div id="navDots" class="nav-dots"></div>
+      </div>
+    </section>
+
+    <!-- ==================== RESULTS VIEW ==================== -->
+    <section id="resultView" class="hidden">
+      <div class="result-card">
+        <div id="resEmoji" style="font-size:3.2rem;margin-bottom:8px;">🏆</div>
+        <h2 id="resTitle" style="font-size:1.6rem;font-weight:900;color:#fff;">Нәтиже</h2>
+        <p id="resSub" style="font-size:0.9rem;color:#cbd5e1;margin-top:6px;"></p>
+
+        <div class="res-grid">
+          <div class="res-box">
+            <div class="stat-sub">Дұрыс</div>
+            <div id="resCorrect" class="res-num" style="color:var(--green);">0 / 0</div>
+          </div>
+          <div class="res-box">
+            <div class="stat-sub">Пайыз</div>
+            <div id="resPct" class="res-num" style="color:var(--cyan);">0%</div>
+          </div>
+          <div class="res-box">
+            <div class="stat-sub">Ұпай</div>
+            <div id="resScore" class="res-num" style="color:var(--amber);">0</div>
+          </div>
+          <div class="res-box">
+            <div class="stat-sub">Макс. серия</div>
+            <div id="resStreak" class="res-num" style="color:#fb923c;">🔥 0</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+          <button id="retryWrongBtn" class="btn btn-amber hidden" onclick="retryWrong()">🔄 Қателерді қайта тапсыру</button>
+          <button class="btn btn-violet" onclick="restartQuiz()">🔁 Қайта бастау</button>
+          <button class="btn btn-ghost" onclick="goHome()">🏠 Басты бет</button>
+        </div>
+      </div>
+
+      <div class="review-wrap">
+        <div class="section-toolbar">
+          <div class="section-title">📋 Жауаптарды талдау</div>
+          <div style="display:flex;gap:6px;">
+            <button id="revAllBtn" class="btn btn-violet" style="padding:6px 12px;font-size:0.78rem;" onclick="renderReview('all')">Барлығы</button>
+            <button id="revWrongBtn" class="btn btn-ghost" style="padding:6px 12px;font-size:0.78rem;" onclick="renderReview('wrong')">Тек қателер</button>
+          </div>
+        </div>
+        <div id="reviewList"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CUSTOM MODAL (Zero alert/confirm) -->
+  <div id="modalBackdrop" class="modal-backdrop hidden" onclick="backdropClick(event)">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div id="modalTitle" class="modal-title">Хабарлама</div>
+        <button class="btn btn-ghost" style="padding:4px 10px;" onclick="closeModal()">✕</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+      <div id="modalFoot" class="modal-foot"></div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. WEB AUDIO API SOUND SYNTHESIZER
+    // =========================================================================
+    const Sound = {
+      enabled: true,
+      ctx: null,
+      ensure() {
+        if (!this.ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) this.ctx = new AC();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume().catch(() => {});
+        }
+      },
+      play(freq, dur, type = 'sine', vol = 0.08, delay = 0) {
+        if (!this.enabled) return;
+        try {
+          this.ensure();
+          if (!this.ctx) return;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          const t = this.ctx.currentTime + delay;
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, t);
+          gain.gain.setValueAtTime(vol, t);
+          gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(t);
+          osc.stop(t + dur);
+        } catch (e) {}
+      },
+      click() { this.play(520, 0.04, 'sine', 0.04, 0); },
+      correct() {
+        this.play(587.33, 0.12, 'triangle', 0.09, 0);
+        this.play(880, 0.22, 'triangle', 0.1, 0.09);
+      },
+      wrong() {
+        this.play(215, 0.16, 'sawtooth', 0.07, 0);
+        this.play(155, 0.24, 'sawtooth', 0.07, 0.12);
+      },
+      finish() {
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => this.play(f, 0.24, 'triangle', 0.09, i * 0.1));
+      }
+    };
+
+    // =========================================================================
+    // 2. PROCEDURAL SVG ENGINE: RELAYING SCHEMES (DNF & CNF)
+    // =========================================================================
+    function parseClauses(str) {
+      return str.split('|').map(part => {
+        const m = part.trim().match(/[xyz]'?/g);
+        return m ? m : ['x', 'y', 'z'];
+      });
+    }
+
+    function formatRelayFormula(mode, clausesStr) {
+      const clauses = parseClauses(clausesStr);
+      if (mode === 'DNF') {
+        return clauses.map(c => `(${c.join(' ∧ ')})`).join(' ∨ ');
+      }
+      return clauses.map(c => `(${c.join(' ∨ ')})`).join(' ∧ ');
+    }
+
+    function renderRelaySVG(mode, clausesStr, compact = false) {
+      const clauses = parseClauses(clausesStr);
+      const wire = '#0f172a';
+      const boxFill = '#f8fafc';
+      const boxStroke = '#1e293b';
+
+      if (mode === 'DNF') {
+        const w = 420, h = 192;
+        const ys = [28, 72, 116, 160];
+        const xs = [110, 210, 310];
+        let body = `
+          <line x1="8" y1="94" x2="40" y2="94" stroke="${wire}" stroke-width="2.2"/>
+          <line x1="40" y1="28" x2="40" y2="160" stroke="${wire}" stroke-width="2.2"/>
+          <line x1="380" y1="28" x2="380" y2="160" stroke="${wire}" stroke-width="2.2"/>
+          <line x1="380" y1="94" x2="412" y2="94" stroke="${wire}" stroke-width="2.2"/>
+          <circle cx="8" cy="94" r="3" fill="${wire}"/>
+          <circle cx="412" cy="94" r="3" fill="${wire}"/>`;
+
+        clauses.forEach((cl, r) => {
+          const y = ys[r] || (28 + r * 44);
+          body += `<line x1="40" y1="${y}" x2="380" y2="${y}" stroke="${wire}" stroke-width="1.9"/>`;
+          cl.forEach((lit, c) => {
+            const cx = xs[c];
+            const isPrime = lit.includes("'");
+            body += `
+              <rect x="${cx - 32}" y="${y - 14}" width="64" height="28" rx="5" fill="${boxFill}" stroke="${isPrime ? '#1d4ed8' : boxStroke}" stroke-width="1.8"/>
+              <text x="${cx}" y="${y + 6}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="18" fill="${isPrime ? '#1d4ed8' : '#0f172a'}">${lit}</text>`;
+          });
+        });
+
+        const maxW = compact ? '100%' : '420px';
+        return `<div class="svg-paper" style="width:${compact ? '100%' : 'auto'};padding:${compact ? '6px 8px' : '10px 14px'};">
+          <svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:${maxW};height:auto;" aria-label="DNF Relaying Scheme">${body}</svg>
+        </div>`;
+      }
+
+      // CNF: 4 blocks in series, each with 3 parallel switches
+      const w = 468, h = 156;
+      const bxs = [32, 138, 244, 350];
+      const bw = 86;
+      const ys = [28, 78, 128];
+      let body = `
+        <line x1="6" y1="78" x2="32" y2="78" stroke="${wire}" stroke-width="2.2"/>
+        <line x1="436" y1="78" x2="462" y2="78" stroke="${wire}" stroke-width="2.2"/>
+        <circle cx="6" cy="78" r="3" fill="${wire}"/>
+        <circle cx="462" cy="78" r="3" fill="${wire}"/>`;
+
+      clauses.forEach((cl, bi) => {
+        const bx = bxs[bi];
+        const bxEnd = bx + bw;
+        const cx = bx + bw / 2;
+        if (bi > 0) {
+          body += `<line x1="${bxs[bi - 1] + bw}" y1="78" x2="${bx}" y2="78" stroke="${wire}" stroke-width="2.2"/>`;
+        }
+        body += `
+          <line x1="${bx}" y1="28" x2="${bx}" y2="128" stroke="${wire}" stroke-width="2"/>
+          <line x1="${bxEnd}" y1="28" x2="${bxEnd}" y2="128" stroke="${wire}" stroke-width="2"/>`;
+        cl.forEach((lit, li) => {
+          const y = ys[li];
+          const isPrime = lit.includes("'");
+          body += `
+            <line x1="${bx}" y1="${y}" x2="${bxEnd}" y2="${y}" stroke="${wire}" stroke-width="1.8"/>
+            <rect x="${cx - 26}" y="${y - 14}" width="52" height="28" rx="5" fill="${boxFill}" stroke="${isPrime ? '#1d4ed8' : boxStroke}" stroke-width="1.8"/>
+            <text x="${cx}" y="${y + 6}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="18" fill="${isPrime ? '#1d4ed8' : '#0f172a'}">${lit}</text>`;
+        });
+      });
+
+      const maxW = compact ? '100%' : '468px';
+      return `<div class="svg-paper" style="width:${compact ? '100%' : 'auto'};padding:${compact ? '6px 8px' : '10px 14px'};">
+        <svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:${maxW};height:auto;" aria-label="CNF Relaying Scheme">${body}</svg>
+      </div>`;
+    }
+
+    function flipLit(lit) {
+      return lit.includes("'") ? lit.replace("'", '') : lit + "'";
+    }
+
+    function mutateClauses(clausesStr, mutations) {
+      const cls = parseClauses(clausesStr).map(c => c.slice());
+      mutations.forEach(([ci, li]) => {
+        if (cls[ci] && cls[ci][li]) cls[ci][li] = flipLit(cls[ci][li]);
+      });
+      return cls.map(c => c.join('')).join('|');
+    }
+
+    function makeRelayDistractors(mode, clausesStr) {
+      const oppMode = mode === 'DNF' ? 'CNF' : 'DNF';
+      const candidates = [
+        [mode, mutateClauses(clausesStr, [[1, 1], [3, 2]])],
+        [mode, mutateClauses(clausesStr, [[0, 0], [2, 2]])],
+        [oppMode, clausesStr],
+        [mode, mutateClauses(clausesStr, [[1, 2], [2, 1]])],
+        [mode, mutateClauses(clausesStr, [[0, 1], [3, 0]])]
+      ];
+      const seen = new Set([mode + '::' + clausesStr]);
+      const out = [];
+      for (const item of candidates) {
+        const key = item[0] + '::' + item[1];
+        if (!seen.has(key)) {
+          seen.add(key);
+          out.push(item);
+          if (out.length === 3) break;
+        }
+      }
+      return out;
+    }
+
+    // =========================================================================
+    // 3. PROCEDURAL SVG ENGINE: IEEE DIGITAL LOGIC GATE CIRCUITS
+    // =========================================================================
+    const G = {
+      // IEEE AND gate: left x, center y, width 46, height 42
+      and(x, y, stroke = '#0f172a', fill = '#ffffff') {
+        return `<path d="M ${x} ${y - 21} L ${x + 24} ${y - 21} A 21 21 0 0 1 ${x + 24} ${y + 21} L ${x} ${y + 21} Z" fill="${fill}" stroke="${stroke}" stroke-width="2.2" stroke-linejoin="round"/>`;
+      },
+      // IEEE OR gate: left x, center y, width 50, height 42
+      or(x, y, stroke = '#0f172a', fill = '#ffffff') {
+        return `<path d="M ${x} ${y - 21} Q ${x + 14} ${y} ${x} ${y + 21} L ${x + 18} ${y + 21} Q ${x + 38} ${y + 20} ${x + 50} ${y} Q ${x + 38} ${y - 20} ${x + 18} ${y - 21} Z" fill="${fill}" stroke="${stroke}" stroke-width="2.2" stroke-linejoin="round"/>`;
+      },
+      // IEEE NOT gate: left x, center y, width 34 (triangle 26 + bubble r=4.5)
+      not(x, y, stroke = '#0f172a', fill = '#ffffff') {
+        return `<polygon points="${x},${y - 15} ${x + 26},${y} ${x},${y + 15}" fill="${fill}" stroke="${stroke}" stroke-width="2.1" stroke-linejoin="round"/>
+                <circle cx="${x + 30.5}" cy="${y}" r="4.5" fill="${fill}" stroke="${stroke}" stroke-width="2.1"/>`;
+      },
+      lbl(x, y, text) {
+        return `<text x="${x}" y="${y + 6}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="19" fill="#0284c7">${text}</text>`;
+      },
+      circLbl(x, y, text) {
+        return `<circle cx="${x}" cy="${y}" r="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.2"/>
+                <text x="${x}" y="${y + 6}" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="15" fill="#0f172a">${text}</text>`;
+      },
+      arr(x, y) {
+        return `<polygon points="${x - 8},${y - 5} ${x},${y} ${x - 8},${y + 5}" fill="#0f172a"/>`;
+      }
+    };
+
+    function renderCircuitSVG(cid, compact = false) {
+      let w = 410, h = 140, body = '';
+      const W = '#0f172a';
+      const B = '#0284c7';
+
+      if (cid === 'c16') {
+        // ¬(p ∧ (q ∨ ¬r))
+        w = 430; h = 136;
+        body = `
+          ${G.lbl(18, 28, 'p')}${G.lbl(18, 66, 'q')}${G.lbl(18, 104, 'r')}
+          <path d="M 32 28 L 222 28 L 222 46 L 246 46" fill="none" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="66" x2="132" y2="66" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="104" x2="64" y2="104" stroke="${W}" stroke-width="2"/>
+          ${G.not(64, 104)}
+          <path d="M 99 104 L 114 104 L 114 90 L 132 90" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.or(126, 78)}
+          <path d="M 176 78 L 222 78 L 222 68 L 246 68" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.and(246, 57)}
+          <line x1="291" y1="57" x2="330" y2="57" stroke="${W}" stroke-width="2"/>
+          ${G.not(330, 57)}
+          <line x1="365" y1="57" x2="412" y2="57" stroke="${W}" stroke-width="2"/>
+          ${G.arr(416, 57)}`;
+      } else if (cid === 'c17') {
+        // (p ∨ ¬r) ∧ (¬p ∨ (q ∨ ¬r))
+        w = 470; h = 196;
+        body = `
+          ${G.lbl(18, 26, 'p')}${G.lbl(18, 58, 'r')}
+          ${G.lbl(18, 106, 'p')}${G.lbl(18, 138, 'q')}${G.lbl(18, 170, 'r')}
+          <!-- Top OR: p, ¬r -->
+          <line x1="32" y1="26" x2="138" y2="26" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="58" x2="62" y2="58" stroke="${W}" stroke-width="2"/>
+          ${G.not(62, 58)}
+          <path d="M 97 58 L 114 58 L 114 50 L 138 50" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.or(132, 38)}
+          <!-- Bottom inner OR: q, ¬r -->
+          <line x1="32" y1="138" x2="138" y2="138" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="170" x2="62" y2="170" stroke="${W}" stroke-width="2"/>
+          ${G.not(62, 170)}
+          <path d="M 97 170 L 114 170 L 114 162 L 138 162" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.or(132, 150)}
+          <!-- ¬p into second OR -->
+          <line x1="32" y1="106" x2="62" y2="106" stroke="${W}" stroke-width="2"/>
+          ${G.not(62, 106)}
+          <path d="M 97 106 L 214 106 L 214 122 L 246 122" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 182 150 L 214 150 L 214 146 L 246 146" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.or(240, 134)}
+          <!-- Final AND -->
+          <path d="M 182 38 L 326 38 L 326 78 L 356 78" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 290 134 L 326 134 L 326 102 L 356 102" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.and(356, 90)}
+          <line x1="401" y1="90" x2="452" y2="90" stroke="${W}" stroke-width="2"/>
+          ${G.arr(456, 90)}`;
+      } else if (cid === 'c31' || cid === 'c31_d1' || cid === 'c31_d2' || cid === 'c31_d3' ||
+                 cid === 'c118' || cid === 'c118_d1' || cid === 'c118_d2' || cid === 'c118_d3') {
+        w = 340; h = 152;
+        let g1 = 'or', g2 = 'and', hasNot = true;
+        if (cid === 'c31' || cid === 'c118_d1') { g1 = 'or'; g2 = 'and'; hasNot = true; }
+        else if (cid === 'c31_d1' || cid === 'c118') { g1 = 'and'; g2 = 'or'; hasNot = true; }
+        else if (cid === 'c31_d2') { g1 = 'or'; g2 = 'and'; hasNot = false; }
+        else if (cid === 'c31_d3') { g1 = 'or'; g2 = 'or'; hasNot = true; }
+        else if (cid === 'c118_d2') { g1 = 'and'; g2 = 'or'; hasNot = false; }
+        else if (cid === 'c118_d3') { g1 = 'and'; g2 = 'and'; hasNot = true; }
+
+        const gate1 = g1 === 'or' ? G.or(86, 46) : G.and(86, 46);
+        const g1OutX = g1 === 'or' ? 136 : 131;
+        const gate2 = g2 === 'or' ? G.or(178, 92) : G.and(178, 92);
+        const g2OutX = g2 === 'or' ? 228 : 223;
+        const g2InX = g2 === 'or' ? 184 : 178;
+
+        body = `
+          ${G.circLbl(28, 28, 'P')}${G.circLbl(28, 66, 'Q')}${G.circLbl(118, 122, 'R')}
+          <path d="M 42 28 L 64 28 L 64 35 L ${g1 === 'or' ? 92 : 86} 35" fill="none" stroke="${W}" stroke-width="2.2"/>
+          <path d="M 42 66 L 64 66 L 64 57 L ${g1 === 'or' ? 92 : 86} 57" fill="none" stroke="${W}" stroke-width="2.2"/>
+          ${gate1}
+          <path d="M ${g1OutX} 46 L 156 46 L 156 80 L ${g2InX} 80" fill="none" stroke="${W}" stroke-width="2.2"/>
+          <path d="M 132 122 L 156 122 L 156 104 L ${g2InX} 104" fill="none" stroke="${W}" stroke-width="2.2"/>
+          ${gate2}
+          ${hasNot
+            ? `<line x1="${g2OutX}" y1="92" x2="262" y2="92" stroke="${W}" stroke-width="2.2"/>
+               ${G.not(262, 92)}
+               <line x1="297" y1="92" x2="328" y2="92" stroke="${W}" stroke-width="2.2"/>`
+            : `<line x1="${g2OutX}" y1="92" x2="328" y2="92" stroke="${W}" stroke-width="2.2"/>`}
+          ${G.arr(332, 92)}`;
+      } else if (cid === 'c46') {
+        // (P ∨ Q) ∧ ¬(P ∧ Q)
+        w = 400; h = 150;
+        body = `
+          ${G.lbl(18, 28, 'P')}${G.lbl(18, 56, 'Q')}
+          <line x1="32" y1="28" x2="94" y2="28" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="56" x2="94" y2="56" stroke="${W}" stroke-width="2"/>
+          <!-- Junction dots & branches down to AND -->
+          <circle cx="66" cy="28" r="3.5" fill="${W}"/>
+          <circle cx="48" cy="56" r="3.5" fill="${W}"/>
+          <path d="M 66 28 L 66 96 L 94 96" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 48 56 L 48 122 L 94 122" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.or(88, 42, B)}
+          ${G.and(94, 109, B)}
+          <line x1="139" y1="109" x2="184" y2="109" stroke="${W}" stroke-width="2"/>
+          ${G.not(184, 109, B)}
+          <!-- To final AND -->
+          <path d="M 138 42 L 266 42 L 266 56 L 296 56" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 219 109 L 266 109 L 266 80 L 296 80" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.and(296, 68, B)}
+          <line x1="341" y1="68" x2="386" y2="68" stroke="${W}" stroke-width="2"/>
+          ${G.arr(390, 68)}`;
+      } else if (cid === 'c61') {
+        // ((P ∧ Q) ∧ (R ∧ S)) ∧ T
+        w = 440; h = 178;
+        body = `
+          ${G.lbl(18, 24, 'P')}${G.lbl(18, 50, 'Q')}
+          ${G.lbl(18, 92, 'R')}${G.lbl(18, 118, 'S')}
+          ${G.lbl(18, 156, 'T')}
+          <line x1="32" y1="24" x2="72" y2="24" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="50" x2="72" y2="50" stroke="${W}" stroke-width="2"/>
+          ${G.and(72, 37, B)}
+          <line x1="32" y1="92" x2="72" y2="92" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="118" x2="72" y2="118" stroke="${W}" stroke-width="2"/>
+          ${G.and(72, 105, B)}
+          <path d="M 117 37 L 154 37 L 154 56 L 182 56" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 117 105 L 154 105 L 154 80 L 182 80" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.and(182, 68, B)}
+          <path d="M 227 68 L 288 68 L 288 86 L 324 86" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 32 156 L 260 156 L 260 110 L 324 110" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.and(324, 98, B)}
+          <line x1="369" y1="98" x2="424" y2="98" stroke="${W}" stroke-width="2"/>
+          ${G.arr(428, 98)}`;
+      } else if (cid === 'c62' || cid === 'c62_and') {
+        // ¬p ∨ ¬q (or ¬p ∧ ¬q)
+        w = 340; h = 128;
+        const isAnd = cid === 'c62_and';
+        body = `
+          ${G.lbl(20, 34, 'p')}${G.lbl(20, 94, 'q')}
+          <line x1="34" y1="34" x2="74" y2="34" stroke="${W}" stroke-width="2"/>
+          <line x1="34" y1="94" x2="74" y2="94" stroke="${W}" stroke-width="2"/>
+          ${G.not(74, 34)}
+          ${G.not(74, 94)}
+          <path d="M 109 34 L 150 34 L 150 52 L ${isAnd ? 190 : 196} 52" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 109 94 L 150 94 L 150 76 L ${isAnd ? 190 : 196} 76" fill="none" stroke="${W}" stroke-width="2"/>
+          ${isAnd ? G.and(190, 64) : G.or(190, 64)}
+          <line x1="${isAnd ? 235 : 240}" y1="64" x2="318" y2="64" stroke="${W}" stroke-width="2"/>
+          ${G.arr(322, 64)}`;
+      } else if (cid === 'c105') {
+        // (p ∧ r) ∨ (¬p ∧ ¬q)
+        w = 410; h = 170;
+        body = `
+          ${G.lbl(18, 28, 'p')}${G.lbl(18, 70, 'q')}${G.lbl(18, 136, 'r')}
+          <!-- Top: ¬p, ¬q -> AND -->
+          <line x1="32" y1="28" x2="80" y2="28" stroke="${W}" stroke-width="2"/>
+          <circle cx="52" cy="28" r="3.5" fill="${W}"/>
+          <path d="M 52 28 L 52 114 L 170 114" fill="none" stroke="${W}" stroke-width="2"/>
+          <line x1="32" y1="70" x2="80" y2="70" stroke="${W}" stroke-width="2"/>
+          ${G.not(80, 28)}
+          ${G.not(80, 70)}
+          <path d="M 115 28 L 144 28 L 144 37 L 170 37" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 115 70 L 144 70 L 144 61 L 170 61" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.and(170, 49)}
+          <!-- Bottom: p, r -> AND -->
+          <line x1="32" y1="136" x2="170" y2="136" stroke="${W}" stroke-width="2"/>
+          ${G.and(170, 125)}
+          <!-- Both -> OR -->
+          <path d="M 215 49 L 258 49 L 258 75 L 296 75" fill="none" stroke="${W}" stroke-width="2"/>
+          <path d="M 215 125 L 258 125 L 258 99 L 296 99" fill="none" stroke="${W}" stroke-width="2"/>
+          ${G.or(290, 87)}
+          <line x1="340" y1="87" x2="392" y2="87" stroke="${W}" stroke-width="2"/>
+          ${G.arr(396, 87)}`;
+      }
+
+      const maxW = compact ? '100%' : w + 'px';
+      return `<div class="svg-paper" style="width:${compact ? '100%' : 'auto'};padding:${compact ? '6px 8px' : '10px 14px'};">
+        <svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:${maxW};height:auto;" aria-label="Logic Circuit ${cid}">${body}</svg>
+      </div>`;
+    }
+
+    // =========================================================================
+    // 4. COMPLETE 180-QUESTION DATASET (BLOCKS 1–6 × 30 QUESTIONS EACH)
+    // Types:
+    //   'text'        : q, formula?, opts:[correct, d1, d2, d3]
+    //   'relay_q'     : q (shows relay SVG), relay:[mode, clausesStr] -> auto 4 formula opts
+    //   'pick_relay'  : q (shows formula), relay:[mode, clausesStr] -> auto 4 relay SVG opts
+    //   'circuit_q'   : q (shows circuit SVG), circuit:cid, opts:[correct, d1, d2, d3]
+    //   'pick_circuit': q, formula, cOpts:[correctCid, d1, d2, d3]
+    // =========================================================================
+    const CAT_LABELS = {
+      zhegalkin: 'Жегалкин полиномы',
+      normal:    'PCNF / PDNF',
+      conjugate: 'Түйіндес функция',
+      relay:     'Релелік схема',
+      circuit:   'Логикалық вентиль',
+      laws:      'Логика заңдары',
+      truth:     'Ақиқат кестесі',
+      english:   'Пікірлер & Импликация'
+    };
+
+    const RAW_DB = [
+      // ===================== BLOCK 1 (1–30) =====================
+      {id:1, cat:'zhegalkin', type:'text', q:'Construct standard truth table for Zhegalkin polynomial:', formula:'z + xz + xyz', opts:['01010001','01010101','10101110','01010011']},
+      {id:2, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 00101110. Find Zhegalkin polynomial:', opts:['x + y + xy + yz','x + y + z + xy','1 + x + y + xy + yz','x + xy + yz']},
+      {id:3, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 1110. Find PCNF of this function:', opts:['(¬x ∨ ¬y)','(x ∨ y)','(¬x ∨ y)','(x ∧ y)']},
+      {id:4, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'yz|xy'z'|xyz"]},
+      {id:5, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 0100. Find PCNF of this function:', opts:['(x ∨ y) ∧ (¬x ∨ y) ∧ (¬x ∨ ¬y)','(x ∨ ¬y) ∧ (¬x ∨ y) ∧ (¬x ∨ ¬y)','(x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ ¬y)','(¬x ∧ y)']},
+      {id:6, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 0011. Find values of conjugate function to the given:', opts:['0011','1100','0101','1010']},
+      {id:7, cat:'laws', type:'text', q:'Simplify the logical equivalence:', formula:'P ∨ ¬P ≡', opts:['1','0','P','¬P']},
+      {id:8, cat:'english', type:'text', q:'In conditional A → B, statement B is called...', opts:['Conclusion','Hypothesis','Conjunction','Negation']},
+      {id:9, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 0110. Find values of conjugate function to the given:', opts:['1001','0110','1010','0011']},
+      {id:10, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xyz'|xy'z|xy'z'|x'y'z"]},
+      {id:11, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xyz'|x'y'z'|x'yz|x'yz'"]},
+      {id:12, cat:'english', type:'text', q:'p is the proposition "The train arrives on time" and q is the proposition "The bus is available." Find the conjunction of these propositions.', opts:['"The train arrives on time, and the bus is available."','"The train arrives on time, or the bus is available."','"If the train arrives on time, then the bus is available."','"The train does not arrive on time, and the bus is available."']},
+      {id:13, cat:'english', type:'text', q:'Which one is a statement?', opts:['The moon is smaller than the Earth.','What time is it now?','Close the door immediately!','x + 5 = 12']},
+      {id:14, cat:'english', type:'text', q:'p is the statement "The traffic is light" and q is the statement "We will arrive early." Express the statement p → q as a statement in English.', opts:['"We will arrive early when the traffic is light."','"The traffic is light if we arrive early."','"We will arrive early and the traffic is light."','"We will not arrive early unless the traffic is light."']},
+      {id:15, cat:'english', type:'text', q:'p is the proposition "This laptop has a touchscreen" and q is the proposition "This laptop has a backlit keyboard." Find the conjunction of these propositions.', opts:['"This laptop has a touchscreen, and it has a backlit keyboard."','"This laptop has a touchscreen, or it has a backlit keyboard."','"If this laptop has a touchscreen, then it has a backlit keyboard."','"Neither touchscreen nor backlit keyboard is present."']},
+      {id:16, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c16', opts:['¬(p ∧ (q ∨ ¬r))','p ∧ (q ∨ ¬r)','¬p ∧ (q ∨ r)','¬(p ∨ (q ∧ ¬r))']},
+      {id:17, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c17', opts:['(p ∨ ¬r) ∧ (¬p ∨ (q ∨ ¬r))','(p ∧ ¬r) ∨ (¬p ∧ (q ∨ ¬r))','(p ∨ r) ∧ (p ∨ (q ∨ ¬r))','(p ∨ ¬r) ∧ (¬p ∧ (q ∨ r))']},
+      {id:18, cat:'laws', type:'text', q:'Write this statement in form of conjunction or disjunction:', formula:'a² + b² ≠ 0', opts:['(a ≠ 0) ∨ (b ≠ 0)','(a ≠ 0) ∧ (b ≠ 0)','(a = 0) ∨ (b = 0)','(a = 0) ∧ (b = 0)']},
+      {id:19, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 0101. Find values of conjugate function to the given:', opts:['0101','1010','1100','0011']},
+      {id:20, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 0111. Find values of conjugate function to the given:', opts:['0001','1000','1110','0111']},
+      {id:21, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'yz|xy'z'|xyz"]},
+      {id:22, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'y'z|xy'z'|xy'z"]},
+      {id:23, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'yz'|xy'z|xyz"]},
+      {id:24, cat:'laws', type:'text', q:'Simplify the logical equivalence:', formula:'P ∨ ¬P ≡', opts:['1','0','P','¬P']},
+      {id:25, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xyz'|xy'z|x'yz'|x'y'z'"]},
+      {id:26, cat:'laws', type:'text', q:'Disjunction of A and B is...', opts:['statement A ∨ B when at least one of A or B is true','statement A ∧ B when both A and B are true','statement A → B when A implies B','statement A ↔ B when both A and B have the same truth value']},
+      {id:27, cat:'english', type:'text', q:'p = "The temperature is at least 0°C." What is ~p?', opts:['"The temperature is below 0°C."','"The temperature is at most 0°C."','"The temperature is above 0°C."','"The temperature is equal to 0°C."']},
+      {id:28, cat:'english', type:'text', q:'Which one is a statement?', opts:['A triangle has three sides.','Do you like geometry?','Draw a triangle on the board!','2x − 1 > 5']},
+      {id:29, cat:'english', type:'text', q:'p is the statement "The experiment is successful" and q is the statement "The theory is validated." Express the statement p → q as a statement in English.', opts:['"The theory is validated follows from the experiment being successful."','"The experiment is successful follows from the theory being validated."','"The experiment is successful and the theory is validated."','"The theory is validated only if the experiment fails."']},
+      {id:30, cat:'english', type:'text', q:'Which one is a statement?', opts:['The moon is smaller than the Earth.','Please open the window.','Is the moon bright tonight?','y + 3 = 10']},
+
+      // ===================== BLOCK 2 (31–60) =====================
+      {id:31, cat:'circuit', type:'pick_circuit', q:'Find appropriate circuit for the Boolean expression:', formula:'¬((P ∨ Q) ∧ R)', cOpts:['c31','c31_d1','c31_d2','c31_d3']},
+      {id:32, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(p ↔ q) ⊕ (¬p ↔ ¬r)', opts:['01100110','10011001','01010101','01101001']},
+      {id:33, cat:'truth', type:'text', q:'With the help of truth table we can find out that formula is...', formula:'((P → ¬Q) → Q) → Q', opts:['tautology','contradiction','contingent only','unsatisfiable']},
+      {id:34, cat:'laws', type:'text', q:'Which system of Boolean formulas is completed?', opts:['{¬, ∧}','{∧, ∨}','{∧, →}','{∨, ↔}']},
+      {id:35, cat:'laws', type:'text', q:'What does «↓» mean?', opts:['NOR operation','NAND operation','XOR operation','Implication']},
+      {id:36, cat:'english', type:'text', q:'Which statement is a proposition?', opts:['London is the capital of Great Britain.','Where is London located?','Visit London next summer!','x² = 16']},
+      {id:37, cat:'laws', type:'text', q:'Simplify this formula:', formula:'¬(¬P ∨ Q) → ((P ∨ Q) → P)', opts:['1','0','P','Q']},
+      {id:38, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 1010. Find PCNF of this function:', opts:['(x ∨ ¬y) ∧ (¬x ∨ ¬y)','(x ∨ y) ∧ (¬x ∨ y)','(¬x ∨ y) ∧ (¬x ∨ ¬y)','(x ∨ ¬y) ∨ (¬x ∨ ¬y)']},
+      {id:39, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 1000. Find PCNF of this function:', opts:['(¬x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ ¬y)','(x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ y)','(x ∨ y) ∧ (¬x ∨ y) ∧ (¬x ∨ ¬y)','(¬x ∧ ¬y)']},
+      {id:40, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 1100. Find values of conjugate function to the given:', opts:['1100','0011','1010','0101']},
+      {id:41, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['CNF',"xyz'|xy'z|xy'z'|x'yz"]},
+      {id:42, cat:'english', type:'text', q:'Which one is a statement?', opts:['The speed of light is approximately 300,000 km/s.','How fast does light travel?','Turn on the light!','v = s / t']},
+      {id:43, cat:'english', type:'text', q:'p is the statement "The machine is maintained regularly" and q is the statement "The machine will function properly." Express the statement p → q as a statement in English.', opts:['"If the machine is maintained regularly, then it will function properly."','"If the machine functions properly, then it is maintained regularly."','"The machine is maintained regularly and functions properly."','"The machine functions properly if and only if it is not maintained."']},
+      {id:44, cat:'english', type:'text', q:'Let p, q, and r symbolize "0 < x", "x < 3", and "x = 3", respectively. Choose an appropriate formula for the statement "x is greater than 0 but not greater than 3":', opts:['p ∧ (q ∨ r)','p ∨ (q ∧ r)','p ∧ q ∧ r','¬p ∧ (q ∨ r)']},
+      {id:45, cat:'english', type:'text', q:'Which of the following correctly expresses the implication: "A sufficient condition for being eligible for the competition is registering on time"?', opts:['"If you register on time, then you are eligible for the competition."','"If you are eligible for the competition, then you registered on time."','"You are eligible for the competition only if you register on time."','"Registering on time is unnecessary for being eligible."']},
+      {id:46, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c46', opts:['(P ∨ Q) ∧ ¬(P ∧ Q)','(P ∧ Q) ∨ ¬(P ∨ Q)','¬(P ∨ Q) ∧ (P ∧ Q)','(P ∨ Q) ∨ ¬(P ∧ Q)']},
+      {id:47, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 01101001. Find Zhegalkin polynomial:', opts:['x + y + z','1 + x + y + z','x + y + xy','x + z + xyz']},
+      {id:48, cat:'laws', type:'text', q:'Disjunction of A and B is...', opts:['statement A ∨ B when at least one of A or B is true','statement A ∧ B when both A and B are true','statement ¬A when A is false','statement A ↔ B when both A and B are false']},
+      {id:49, cat:'laws', type:'text', q:'Statement A → B is false only when Statement A is true and Statement B is false; then Statement A → B is called...', opts:['conditional','biconditional','conjunction','disjunction']},
+      {id:50, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'yz'|xy'z|xyz"]},
+      {id:51, cat:'truth', type:'text', q:'Let A, B, C, D be formulas of two variables in propositional algebra and their values in truth table are: A – 1101, B – 1111, C – 0100. In what case will formula D be a consequence of formulas A, B, C?', opts:['D – 0101','D – 1010','D – 0011','D – 1000']},
+      {id:52, cat:'laws', type:'text', q:'Write this formula A → B through the Sheffer stroke operation { | }:', opts:['A | (B | B)','(A | A) | B','(A | B) | (A | B)','A | B']},
+      {id:53, cat:'laws', type:'text', q:'Write this statement without negation:', formula:'¬(a ≤ b)', opts:['a > b','a ≥ b','a < b','a ≠ b']},
+      {id:54, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['CNF',"xy'z|xy'z'|x'yz|x'y'z'"]},
+      {id:55, cat:'english', type:'text', q:'Which of these propositions is/are true? (1) «3² + 4² = 5²»; (2) «Ann and Joe are sisters»; (3) «3 + 4 = 7»; (4) «Almaty is a capital of Kazakhstan»; (5) «sin 30° = 1/2»', opts:['1, 3, 5','1, 2, 3','1, 3, 4, 5','3, 4, 5']},
+      {id:56, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 0101. Find values of conjugate function to the given:', opts:['0101','1010','0011','1100']},
+      {id:57, cat:'english', type:'text', q:'p is the statement "The battery is charged" and q is the statement "The phone will turn on." Express the statement p → q in English.', opts:['"The phone will turn on only if the battery is charged."','"If the phone turns on, then the battery is charged."','"The battery is charged and the phone will turn on."','"The phone will not turn on if the battery is charged."']},
+      {id:58, cat:'english', type:'text', q:'Which one is a true statement?', opts:['Humans have 206 bones in their body.','Every prime number is even.','2 + 2 = 5.','Mars is the closest planet to the Sun.']},
+      {id:59, cat:'english', type:'text', q:'p is the statement "The battery is charged" and q is the statement "The device will turn on." Express the statement p → q as a statement in English.', opts:['"The device will turn on provided that the battery is charged."','"The battery is charged provided that the device turns on."','"The device turns on unless the battery is charged."','"The battery is not charged or the device turns off."']},
+      {id:60, cat:'english', type:'text', q:'p is the statement "You follow a healthy diet" and q is the statement "You stay fit." Express the statement p → q in English.', opts:['"You stay fit if you follow a healthy diet."','"You follow a healthy diet if you stay fit."','"You follow a healthy diet and you stay fit."','"You do not stay fit when you follow a healthy diet."']},
+
+      // ===================== BLOCK 3 (61–90) =====================
+      {id:61, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c61', opts:['((P ∧ Q) ∧ (R ∧ S)) ∧ T','((P ∨ Q) ∧ (R ∨ S)) ∧ T','((P ∧ Q) ∨ (R ∧ S)) ∧ T','(P ∧ Q) ∧ ((R ∨ S) ∨ T)']},
+      {id:62, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'yz'|x'yz|xyz'"]},
+      {id:63, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|xy'z|xy'z'|xyz"]},
+      {id:64, cat:'english', type:'text', q:'In conditional A → B, statement A is called...', opts:['hypothesis','conclusion','converse','contrapositive']},
+      {id:65, cat:'laws', type:'text', q:'Find the negation of the formula:', formula:'F = (¬x ∧ y) ∨ (x ∧ ¬y)', opts:['¬F = (x ∨ ¬y) ∧ (¬x ∨ y)','¬F = (x ∧ ¬y) ∨ (¬x ∧ y)','¬F = (¬x ∨ y) ∧ (x ∨ ¬y)','¬F = (x ∨ y) ∧ (¬x ∨ ¬y)']},
+      {id:66, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 0010. Find PDNF of this function:', opts:['(x ∧ ¬y)','(¬x ∧ y)','(x ∧ y)','(¬x ∧ ¬y)']},
+      {id:67, cat:'laws', type:'text', q:'Which system of Boolean formulas is NOT completed?', opts:['{∧, →}','{¬, ∧}','{¬, ∨}','{ | }']},
+      {id:68, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['CNF',"xy'z|xy'z'|x'yz|x'y'z'"]},
+      {id:69, cat:'english', type:'text', q:'Given statement A = «a can be divided by 3» and statement B = «a can be divided by 4». Write this statement as a formula: «a can be divided by 3 or by 4»:', opts:['A ∨ B','A ∧ B','A → B','A ↔ B']},
+      {id:70, cat:'laws', type:'text', q:'Write this statement without negation:', formula:'¬(a < b)', opts:['a ≥ b','a > b','a ≤ b','a ≠ b']},
+      {id:71, cat:'english', type:'text', q:'p is the statement "Ali studies hard" and q is the statement "Ali will pass the exam." Express the statement p → q as a statement in English.', opts:['"If Ali studies hard, then he will pass the exam."','"If Ali passes the exam, then he studied hard."','"Ali studies hard and he will pass the exam."','"Ali will pass the exam unless he studies hard."']},
+      {id:72, cat:'english', type:'text', q:'Which of the following correctly expresses the implication: "Being a citizen is a necessary condition for voting in national elections"?', opts:['"If you vote in national elections, then you are a citizen."','"If you are a citizen, then you vote in national elections."','"Being a citizen guarantees voting in national elections."','"You can vote in national elections without being a citizen."']},
+      {id:73, cat:'english', type:'text', q:'p is the statement "The contract is signed" and q is the statement "The project will begin." Express the statement p → q as a statement in English.', opts:['"The project will begin when the contract is signed."','"The contract is signed when the project begins."','"The contract is signed and the project begins."','"The project will not begin if the contract is signed."']},
+      {id:74, cat:'english', type:'text', q:'p is the statement "You pay the subscription" and q is the statement "You can access premium content." Express the statement p → q in English.', opts:['"You can access premium content provided that you pay the subscription."','"You pay the subscription provided that you access premium content."','"You pay the subscription or access premium content."','"You cannot access premium content when you pay the subscription."']},
+      {id:75, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 01101001. Find Zhegalkin polynomial:', opts:['x + y + z','1 + x + y + z','x + y + xz','y + z + xyz']},
+      {id:76, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c62_and', opts:['¬p ∧ ¬q','¬p ∨ ¬q','¬(p ∧ q)','p ∧ q']},
+      {id:77, cat:'laws', type:'text', q:'Which one of the given formulas is a tautology?', opts:['X ∨ ¬X','X ∧ ¬X','X → ¬X','X ↔ ¬X']},
+      {id:78, cat:'laws', type:'text', q:'Simplify (Idempotent law):', formula:'P ∨ P ≡', opts:['P','1','0','¬P']},
+      {id:79, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['CNF',"xy'z|xy'z'|x'yz'|x'y'z'"]},
+      {id:80, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 0010. Find PCNF of this function:', opts:['(x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ ¬y)','(x ∨ y) ∧ (¬x ∨ y) ∧ (¬x ∨ ¬y)','(¬x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ ¬y)','(x ∧ ¬y)']},
+      {id:81, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xyz'|xy'z|xy'z'|x'y'z"]},
+      {id:82, cat:'laws', type:'text', q:'Conjunction of A and B is...', opts:['statement A ∧ B when both A and B are true','statement A ∨ B when at least one of A or B is true','statement A → B when A is false','statement A ↔ B when both are false']},
+      {id:83, cat:'laws', type:'text', q:'Formula is called satisfiable, if it is...', opts:['true for some value of its propositional variables','always false for every value of its propositional variables','always true for every value of its propositional variables','equivalent to contradiction 0']},
+      {id:84, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 0101. Find values of conjugate function to the given:', opts:['0101','1010','1001','0110']},
+      {id:85, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 1101. Find PDNF of this function:', opts:['(¬x ∧ ¬y) ∨ (¬x ∧ y) ∨ (x ∧ y)','(¬x ∧ ¬y) ∨ (x ∧ ¬y) ∨ (x ∧ y)','(x ∨ y) ∧ (¬x ∨ y) ∧ (x ∨ ¬y)','(¬x ∨ ¬y) ∨ (¬x ∨ y) ∨ (x ∨ y)']},
+      {id:86, cat:'english', type:'text', q:'Which one is a true statement?', opts:['The Great Wall of China is visible from space.','A pentagon has four sides.','Water boils at 50°C at sea level.','All squares are circles.']},
+      {id:87, cat:'english', type:'text', q:'p is the statement "Ali studies hard" and q is the statement "Ali will pass the exam." Express the statement p → q as a statement in English.', opts:['"If Ali studies hard, then he will pass the exam."','"Ali studies hard only if he passes the exam."','"If Ali fails the exam, he studied hard."','"Ali studies hard and passes the exam."']},
+      {id:88, cat:'english', type:'text', q:'p is the proposition "Damir\'s PC has more than 16 GB free hard disk space" and q is the proposition "The processor in Damir\'s PC runs faster than 1 GHz." Find the conjunction of these propositions.', opts:['"Damir\'s PC has more than 16 GB free hard disk space, and its processor runs faster than 1 GHz."','"Damir\'s PC has more than 16 GB free hard disk space, or its processor runs faster than 1 GHz."','"If Damir\'s PC has more than 16 GB free space, then its processor runs faster than 1 GHz."','"Damir\'s PC does not have 16 GB free space, and its processor is slow."']},
+      {id:89, cat:'english', type:'text', q:'p is the proposition "It is snowing" and q is the proposition "The temperature is below 0°C." Find the conjunction of these propositions.', opts:['"It is snowing, and the temperature is below 0°C."','"It is snowing, or the temperature is below 0°C."','"If it is snowing, then the temperature is below 0°C."','"It is not snowing, and the temperature is above 0°C."']},
+      {id:90, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(p → (p ∨ q))  [exam key: 1111]', opts:['1111','1010','0110','1110']},
+
+      // ===================== BLOCK 4 (91–120) =====================
+      {id:91, cat:'laws', type:'text', q:'Show true formula (Idempotent laws):', opts:['x ∧ x ≡ x,  x ∨ x ≡ x','x ∧ x ≡ 1,  x ∨ x ≡ 0','x ∧ x ≡ ¬x,  x ∨ x ≡ 1','x ∧ x ≡ 0,  x ∨ x ≡ x']},
+      {id:92, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 1001. Find values of conjugate function to the given:', opts:['0110','1001','1100','0011']},
+      {id:93, cat:'laws', type:'text', q:'Which one of these variants is a formula of propositional algebra?', opts:['((P ↔ Q) ∧ R) → (P ∨ R)','P ∧ ∨ Q → R','(P → Q ∧) ∨ R','↔ P (Q ∧ R)']},
+      {id:94, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 1011. Find PCNF of this function:', opts:['(x ∨ ¬y)','(¬x ∨ y)','(x ∨ y)','(¬x ∨ ¬y)']},
+      {id:95, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 1000. Find values of conjugate function to the given:', opts:['1110','0001','0111','1000']},
+      {id:96, cat:'laws', type:'text', q:'Biconditional of A and B is...', opts:['statement A ↔ B when both A and B are true or false','statement A → B when A is true and B is false','statement A ∧ B when at least one is true','statement A ∨ B when both are different']},
+      {id:97, cat:'laws', type:'text', q:'Commutative law of conjunction:', opts:['x ∧ y ≡ y ∧ x','x ∨ y ≡ y ∨ x','(x ∧ y) ∧ z ≡ x ∧ (y ∧ z)','x ∧ (y ∨ z) ≡ (x ∧ y) ∨ (x ∧ z)']},
+      {id:98, cat:'laws', type:'text', q:'Write this statement in form of conjunction or disjunction:', formula:'|a| < 3', opts:['(a > −3) ∧ (a < 3)','(a > −3) ∨ (a < 3)','(a < −3) ∨ (a > 3)','(a ≥ −3) ∧ (a ≤ 3)']},
+      {id:99, cat:'laws', type:'text', q:'Distributive law of conjunction over disjunction:', formula:'P ∧ (Q ∨ R) ≡', opts:['(P ∧ Q) ∨ (P ∧ R)','(P ∨ Q) ∧ (P ∨ R)','(P ∧ Q) ∧ (P ∧ R)','P ∨ (Q ∧ R)']},
+      {id:100, cat:'english', type:'text', q:'If p = "It is raining" and q = "The ground is wet," then choose the appropriate formula for the statement "It is not raining but the ground is wet."', opts:['~p ∧ q','p ∧ ~q','~p ∨ q','~p → q']},
+      {id:101, cat:'english', type:'text', q:'If m = "The machine is working" and n = "The factory is open," then choose the appropriate formula for the statement "The machine is neither working nor is the factory open."', opts:['~m ∧ ~n','~m ∨ ~n','~(m ∧ n)','m ∧ ~n']},
+      {id:102, cat:'english', type:'text', q:'p = "The car\'s speed is at least 60 km/h." What is ~p?', opts:['"The car\'s speed is less than 60 km/h."','"The car\'s speed is at most 60 km/h."','"The car\'s speed is greater than 60 km/h."','"The car\'s speed is equal to 60 km/h."']},
+      {id:103, cat:'english', type:'text', q:'Which one is a true statement?', opts:['Some metals can conduct electricity.','No metal conducts electricity.','Every integer is positive.','The sum of angles in a triangle is 360°.']},
+      {id:104, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 01101101. Find Zhegalkin polynomial:', opts:['x + y + z + xz + xyz','x + y + z + xy','1 + x + y + z + xz','x + z + yz + xyz']},
+      {id:105, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 01101010. Find Zhegalkin polynomial:', opts:['x + y + z + xy','x + y + z + xz','x + y + yz','1 + x + y + xy']},
+      {id:106, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['CNF',"xyz'|xy'z'|x'yz'|x'y'z'"]},
+      {id:107, cat:'laws', type:'text', q:'Write this statement in form of conjunction or disjunction:', formula:'a² + b² ≠ 0', opts:['(a ≠ 0) ∨ (b ≠ 0)','(a ≠ 0) ∧ (b ≠ 0)','(a = 0) ∧ (b = 0)','(a = 0) ∨ (b = 0)']},
+      {id:108, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|xy'z'|xyz'|xyz"]},
+      {id:109, cat:'laws', type:'text', q:'Write this statement in form of conjunction or disjunction:', formula:'a · b ≠ 0', opts:['(a ≠ 0) ∧ (b ≠ 0)','(a ≠ 0) ∨ (b ≠ 0)','(a = 0) ∨ (b = 0)','(a = 0) ∧ (b = 0)']},
+      {id:110, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['CNF',"xy'z|x'yz|x'y'z|x'y'z'"]},
+      {id:111, cat:'english', type:'text', q:'Which proposition is false?', opts:['7 is prime and 9 is prime number','7 is prime and 11 is prime number','2 is even or 9 is prime number','If 9 is prime, then 7 is even']},
+      {id:112, cat:'laws', type:'text', q:'Find the negation of the formula:', formula:'F = (¬x ∧ y) ∨ (x ∧ ¬y)', opts:['¬F = (x ∨ ¬y) ∧ (¬x ∨ y)','¬F = (¬x ∨ ¬y) ∧ (x ∨ y)','¬F = (x ∧ y) ∨ (¬x ∧ ¬y)','¬F = (¬x ∧ ¬y) ∧ (x ∧ y)']},
+      {id:113, cat:'laws', type:'text', q:'Simplify this formula:', formula:'(P → Q) ∧ (Q → ¬P) ∧ (R → P)', opts:['¬P ∧ ¬R','P ∧ R','¬P ∨ ¬R','1']},
+      {id:114, cat:'english', type:'text', q:'Given statement A = «a can be divided by 3» and statement B = «a can be divided by 4». Write «a can be divided by 3 or by 4»:', opts:['A ∨ B','A ∧ B','¬A ∨ ¬B','A → B']},
+      {id:115, cat:'english', type:'text', q:'p is the statement "The battery is charged" and q is the statement "The phone will turn on." Express the statement p → q in English.', opts:['"The phone will turn on only if the battery is charged."','"The battery is charged if the phone turns on."','"The battery is charged and the phone is off."','"The phone turns on if and only if the battery is empty."']},
+      {id:116, cat:'english', type:'text', q:'p = "There are at least 10 students in the class." What is ~p?', opts:['"There are fewer than 10 students in the class."','"There are at most 10 students in the class."','"There are more than 10 students in the class."','"There are exactly 10 students in the class."']},
+      {id:117, cat:'english', type:'text', q:'Choose the correct implication: "Paying tuition is a sufficient condition for attending university classes."', opts:['"If you pay tuition, then you can attend university classes."','"If you attend university classes, then you paid tuition."','"Paying tuition is necessary only after attending classes."','"You cannot attend classes even if you pay tuition."']},
+      {id:118, cat:'english', type:'text', q:'p is the statement "Dilnaz learns mathematics" and q is the statement "Dilnaz will find a good job." Express the statement p → q as a statement in English.', opts:['"If Dilnaz learns mathematics, then she will find a good job."','"If Dilnaz finds a good job, then she learns mathematics."','"Dilnaz learns mathematics and finds a good job."','"Dilnaz will not find a good job if she learns mathematics."']},
+      {id:119, cat:'zhegalkin', type:'text', q:'Construct standard truth table for Zhegalkin polynomial:', formula:'1 + x + y + z + xy', opts:['10010101','10010110','01101010','10100101']},
+      {id:120, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 00101101. Find Zhegalkin polynomial:', opts:['x + y + yz','x + y + xz','x + y + xy + yz','1 + x + y + yz']},
+
+      // ===================== BLOCK 5 (121–150) =====================
+      {id:121, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(A ∧ ¬B) ∨ (A ∧ C) ∨ (¬A ∧ B ∧ ¬C)', opts:['0010 1101','0001 1110','0010 1110','0100 1101']},
+      {id:122, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xy'z|x'yz|x'y'z|x'y'z'"]},
+      {id:123, cat:'laws', type:'text', q:'Simplify the logical equivalence:', formula:'P ∧ ¬P ≡', opts:['0','1','P','¬P']},
+      {id:124, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(A ∧ ¬B) ∨ (A ∧ ¬C) ∨ (¬A ∧ B ∧ C)', opts:['0001 1110','0010 1101','0001 1111','0110 1001']},
+      {id:125, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(A ∧ ¬B) ∨ (A ∧ C) ∨ (¬A ∧ B ∧ ¬C)', opts:['0010 1101','0001 1011','0011 1100','0101 1010']},
+      {id:126, cat:'laws', type:'text', q:'Associative law of conjunction:', opts:['(x ∧ y) ∧ z ≡ x ∧ (y ∧ z)','(x ∨ y) ∨ z ≡ x ∨ (y ∨ z)','x ∧ y ≡ y ∧ x','x ∧ (y ∨ z) ≡ (x ∧ y) ∨ (x ∧ z)']},
+      {id:127, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(B ∧ C) ∨ (A ∧ ¬C) ∨ (A ∧ C)', opts:['0001 1111','0001 1110','0001 0111','0011 1111']},
+      {id:128, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|xy'z'|xy'z|xyz'"]},
+      {id:129, cat:'laws', type:'text', q:'A formula which is always true for every value of its propositional variables is called...', opts:['tautology','contradiction','satisfiable only','consequence']},
+      {id:130, cat:'english', type:'text', q:'Which one is a true statement?', opts:['The formula for the area of a circle is πr².','The formula for the area of a circle is 2πr.','A circle has four vertices.','π is an integer.']},
+      {id:131, cat:'english', type:'text', q:'p = "There are fewer than 10 students in the class." What is ~p?', opts:['"There are 10 or more students in the class."','"There are more than 10 students in the class."','"There are at most 10 students in the class."','"There are exactly 10 students in the class."']},
+      {id:132, cat:'english', type:'text', q:'p = "The temperature is at least 0°C." What is ~p?', opts:['"The temperature is below 0°C."','"The temperature is at most 0°C."','"The temperature is above 0°C."','"The temperature is 0°C."']},
+      {id:133, cat:'english', type:'text', q:'p is the statement "You follow a healthy diet" and q is the statement "You stay fit." Express the statement p → q in English.', opts:['"You stay fit if you follow a healthy diet."','"You follow a healthy diet if you stay fit."','"You follow a healthy diet or stay fit."','"Staying fit implies following a healthy diet."']},
+      {id:134, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c46', opts:['(P ∨ Q) ∧ ¬(P ∧ Q)','(P ∧ Q) ∨ ¬(P ∨ Q)','(P ∨ Q) ∧ (P ∧ Q)','¬(P ∨ Q) ∨ ¬(P ∧ Q)']},
+      {id:135, cat:'zhegalkin', type:'text', q:'Construct standard truth table for Zhegalkin polynomial:', formula:'z + xy + yz  (printed z+xy+yx in docx)', opts:['01000111','01010111','01010001','10111000']},
+      {id:136, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'yz'|xy'z'|xy'z"]},
+      {id:137, cat:'laws', type:'text', q:'Disjunction of A and B is...', opts:['statement A ∨ B when at least one of A or B is true','statement A ∧ B when both A and B are true','statement A → B when A is true','statement ¬(A ∧ B) when both are true']},
+      {id:138, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'yz|xy'z'|xy'z"]},
+      {id:139, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xy'z|x'yz|x'yz'|x'y'z"]},
+      {id:140, cat:'laws', type:'text', q:'Statement A ↔ B is true only when both A and B are true or false is called...', opts:['Biconditional','Conditional','Disjunction','Conjunction']},
+      {id:141, cat:'laws', type:'text', q:'Another name for conjunction of two statements is...', opts:['logical multiplication','logical addition','logical negation','logical implication']},
+      {id:142, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 0100. Find PDNF of this function:', opts:['(¬x ∧ y)','(x ∧ ¬y)','(¬x ∧ ¬y)','(x ∧ y)']},
+      {id:143, cat:'truth', type:'text', q:'Let A, B, C, D be formulas of two variables in propositional algebra and their values in truth table are: A – 0110, B – 1110, C – 1011. In what case will formula D be a consequence of formulas A, B, C?', opts:['D – 0010','D – 1001','D – 0100','D – 0001']},
+      {id:144, cat:'normal', type:'text', q:'CNF of this formula is:', formula:'(X ∨ (X → Y)) → Y', opts:['Y','X','X ∨ Y','¬Y']},
+      {id:145, cat:'english', type:'text', q:'p is the statement "The server is operational" and q is the statement "Users can access the database." Express the statement p → q as a statement in English.', opts:['"If the server is operational, then users can access the database."','"If users can access the database, then the server is operational."','"The server is operational and users can access the database."','"Users cannot access the database when the server is operational."']},
+      {id:146, cat:'english', type:'text', q:'p is the statement "The temperature drops below freezing" and q is the statement "The pipes will freeze." Express the statement p → q as a statement in English.', opts:['"The pipes will freeze if the temperature drops below freezing."','"The temperature drops below freezing if the pipes freeze."','"The pipes will not freeze when the temperature drops below freezing."','"The temperature drops below freezing and the pipes freeze."']},
+      {id:147, cat:'english', type:'text', q:'Which one is a statement?', opts:['The moon is smaller than the Earth.','Look at the moon!','How far is the moon?','x − 7 < 3']},
+      {id:148, cat:'english', type:'text', q:'Which one is a true statement?', opts:['The Statue of Liberty was a gift from France to the USA.','The Statue of Liberty is located in Paris.','The Atlantic Ocean is a continent.','5 × 6 = 35.']},
+      {id:149, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c105', opts:['(p ∧ r) ∨ (¬p ∧ ¬q)','(p ∨ r) ∧ (¬p ∨ ¬q)','(p ∧ r) ∧ (¬p ∨ ¬q)','(¬p ∧ r) ∨ (p ∧ ¬q)']},
+      {id:150, cat:'circuit', type:'circuit_q', q:'Find the Boolean expression for the circuit:', circuit:'c62', opts:['¬p ∨ ¬q','¬p ∧ ¬q','p ∨ q','¬(p ∨ q)']},
+
+      // ===================== BLOCK 6 (151–180) =====================
+      {id:151, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'y'z|xy'z'|xy'z"]},
+      {id:152, cat:'laws', type:'text', q:'A formula which is true for some values of its propositional variables is called...', opts:['satisfiable','contradiction','unsatisfiable','refutable']},
+      {id:153, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 0011. Find PCNF of this function:', opts:['(x ∨ ¬y) ∧ (x ∨ y)','(¬x ∨ ¬y) ∧ (¬x ∨ y)','(x ∨ y) ∧ (¬x ∨ y)','(x ∧ ¬y) ∨ (x ∧ y)']},
+      {id:154, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 0010. Find PDNF of this function:', opts:['(x ∧ ¬y)','(¬x ∧ y)','(x ∧ y)','(¬x ∧ ¬y)']},
+      {id:155, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'y'z|xy'z'|xy'z"]},
+      {id:156, cat:'conjugate', type:'text', q:'The value of Boolean function in truth table is 1011. Find values of conjugate function to the given:', opts:['0010','1001','1101','0011']},
+      {id:157, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'yz|xy'z'|xy'z"]},
+      {id:158, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xyz'|x'y'z'|x'yz|x'yz'"]},
+      {id:159, cat:'laws', type:'text', q:'Commutative law of disjunction:', opts:['x ∨ y ≡ y ∨ x','x ∧ y ≡ y ∧ x','(x ∨ y) ∨ z ≡ x ∨ (y ∨ z)','x ∨ (y ∧ z) ≡ (x ∨ y) ∧ (x ∨ z)']},
+      {id:160, cat:'english', type:'text', q:'p is the statement "The alarm rings" and q is the statement "We wake up on time." Express the statement p → q in English.', opts:['"We wake up on time if the alarm rings."','"The alarm rings if we wake up on time."','"The alarm rings and we wake up on time."','"We wake up late if the alarm rings."']},
+      {id:161, cat:'english', type:'text', q:'Which one is a statement?', opts:['The speed of light is approximately 300,000 km/s.','Measure the speed of light!','Can anything travel faster than light?','c = λ · f']},
+      {id:162, cat:'english', type:'text', q:'Which one is a statement?', opts:['Water freezes at 0 degrees Celsius.','Boil the water!','Why does water freeze?','T < 0']},
+      {id:163, cat:'english', type:'text', q:'Choose the correct implication: "Paying tuition is a sufficient condition for attending university classes."', opts:['"If you pay tuition, then you can attend university classes."','"If you attend university classes, then you paid tuition."','"Paying tuition is impossible without attending classes."','"You attend classes if and only if you do not pay tuition."']},
+      {id:164, cat:'zhegalkin', type:'text', q:'Construct standard truth table for Zhegalkin polynomial:', formula:'z + xy + xyz', opts:['01010111','01010001','01000111','10101000']},
+      {id:165, cat:'zhegalkin', type:'text', q:'The value of Boolean function in truth table is 00011011. Find Zhegalkin polynomial:', opts:['x + xz + yz','x + y + xz','x + xy + yz','1 + x + xz + yz']},
+      {id:166, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['CNF',"xyz'|x'y'z'|x'yz|x'yz'"]},
+      {id:167, cat:'relay', type:'pick_relay', q:'Find a relaying scheme for the next Boolean function:', relay:['DNF',"x'y'z'|x'yz|xy'z'|xy'z"]},
+      {id:168, cat:'laws', type:'text', q:'Which system of Boolean formulas is completed?', opts:['{¬, →}','{∧, ∨}','{→, ↔}','{∧, 1}']},
+      {id:169, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'y'z|x'yz|xyz'"]},
+      {id:170, cat:'truth', type:'text', q:'Construct standard truth table for this formula:', formula:'(A ∧ B) ∨ (A ∧ C) ∨ (B ∧ C)', opts:['0001 0111','0001 1111','0111 1111','0001 1011']},
+      {id:171, cat:'normal', type:'text', q:'The value of Boolean function in truth table is 1000. Find PCNF of this function:', opts:['(¬x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ ¬y)','(x ∨ y) ∧ (¬x ∨ y) ∧ (¬x ∨ ¬y)','(x ∨ y) ∧ (x ∨ ¬y) ∧ (¬x ∨ ¬y)','(x ∧ y)']},
+      {id:172, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'yz|xy'z'|xyz"]},
+      {id:173, cat:'english', type:'text', q:'Find the contrapositive theorem of the following theorem: "If discriminant of quadratic equation is less than 0, then it will not have real roots"', opts:['If quadratic equation has real roots, then its discriminant is not less than 0','If discriminant of quadratic equation is not less than 0, then it has real roots','If quadratic equation does not have real roots, then its discriminant is less than 0','If quadratic equation has no real roots, then its discriminant is positive']},
+      {id:174, cat:'relay', type:'relay_q', q:'Find a Boolean function for the given relaying scheme.', relay:['DNF',"x'y'z'|x'y'z|xy'z|xyz"]},
+      {id:175, cat:'english', type:'text', q:'p is the statement "The student submits homework" and q is the statement "The student will pass the course." Express the statement p → q in English.', opts:['"The student will pass the course if the homework is submitted."','"The student submits homework if the course is passed."','"The student submits homework and passes the course."','"The student fails the course when homework is submitted."']},
+      {id:176, cat:'english', type:'text', q:'p is the statement "Ali studies hard" and q is the statement "Ali will pass the exam." Express the statement p → q in English.', opts:['"Ali will pass the exam if he studies hard."','"Ali studies hard if he passes the exam."','"Ali studies hard or passes the exam."','"Ali will not pass the exam if he studies hard."']},
+      {id:177, cat:'english', type:'text', q:'Choose the correct implication: "A necessary condition for being promoted is completing the training."', opts:['"If you are promoted, then you have completed the training."','"If you complete the training, then you will be promoted."','"Completing the training is sufficient for being promoted."','"You can be promoted without completing the training."']},
+      {id:178, cat:'english', type:'text', q:'Which one is a statement?', opts:['The Pacific Ocean is the largest ocean on Earth.','Swim across the ocean!','Which ocean is the deepest?','3x + 2y = 9']},
+      {id:179, cat:'zhegalkin', type:'text', q:'Construct standard truth table for Zhegalkin polynomial:', formula:'1 + x + y + xy + xz + yz', opts:['11010100','10101011','11010111','01101001']},
+      {id:180, cat:'circuit', type:'pick_circuit', q:'Find appropriate circuit for the Boolean expression:', formula:'¬((P ∧ Q) ∨ R)', cOpts:['c118','c118_d1','c118_d2','c118_d3']}
+    ];
+
+    // Hydrate DB with complete pre-built options (index 0 is ALWAYS correct before per-session shuffling)
+    const DB = RAW_DB.map(item => {
+      const blockNum = Math.ceil(item.id / 30);
+      if (item.type === 'relay_q') {
+        const [mode, cl] = item.relay;
+        const correctF = formatRelayFormula(mode, cl);
+        const distSpecs = makeRelayDistractors(mode, cl);
+        const distF = distSpecs.map(([m, c]) => formatRelayFormula(m, c));
+        return {
+          ...item,
+          block: blockNum,
+          opts: [correctF, ...distF],
+          optKind: 'text',
+          ansText: correctF
+        };
+      }
+      if (item.type === 'pick_relay') {
+        const [mode, cl] = item.relay;
+        const formula = formatRelayFormula(mode, cl);
+        const distSpecs = makeRelayDistractors(mode, cl);
+        return {
+          ...item,
+          block: blockNum,
+          formula,
+          opts: [[mode, cl], ...distSpecs],
+          optKind: 'relay',
+          ansText: `${mode} схемасы: ${formula}`
+        };
+      }
+      if (item.type === 'pick_circuit') {
+        return {
+          ...item,
+          block: blockNum,
+          opts: item.cOpts.slice(),
+          optKind: 'circuit',
+          ansText: `Схема (${item.formula})`
+        };
+      }
+      return {
+        ...item,
+        block: blockNum,
+        optKind: 'text',
+        ansText: item.opts[0]
+      };
+    });
+
+    // =========================================================================
+    // 5. LOCALSTORAGE PERSISTENCE
+    // =========================================================================
+    const LS = {
+      done: 'dm_ml_180_done',
+      errors: 'dm_ml_180_errors',
+      bestExam: 'dm_ml_180_best_exam'
+    };
+
+    let solvedSet = new Set();
+    let errorSet = new Set();
+    let bestExam = null;
+
+    function loadStorage() {
+      try {
+        const d = JSON.parse(localStorage.getItem(LS.done) || '[]');
+        const e = JSON.parse(localStorage.getItem(LS.errors) || '[]');
+        const b = localStorage.getItem(LS.bestExam);
+        if (Array.isArray(d)) solvedSet = new Set(d);
+        if (Array.isArray(e)) errorSet = new Set(e);
+        if (b !== null) bestExam = JSON.parse(b);
+      } catch (err) {}
+    }
+
+    function saveStorage() {
+      try {
+        localStorage.setItem(LS.done, JSON.stringify([...solvedSet]));
+        localStorage.setItem(LS.errors, JSON.stringify([...errorSet]));
+        if (bestExam !== null) localStorage.setItem(LS.bestExam, JSON.stringify(bestExam));
+      } catch (err) {}
+    }
+
+    // =========================================================================
+    // 6. STATE & HELPERS
+    // =========================================================================
+    let activeTab = 'blocks';
+    let chosenMode = 'game'; // 'game' | 'study'
+    const LETTERS = ['A', 'B', 'C', 'D'];
+
+    let session = {
+      active: false,
+      title: '',
+      mode: 'game', // 'game' | 'study' | 'exam'
+      items: [], // [{ q, optOrder:[origIdx...], ansPos:0..3 }]
+      index: 0,
+      answers: {}, // idx -> chosenPos (0..3 or -1)
+      flags: new Set(),
+      score: 0,
+      streak: 0,
+      maxStreak: 0,
+      timer: null,
+      timeLeft: 0,
+      restartFn: null
+    };
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function fmtMMSS(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    // =========================================================================
+    // 7. MODAL HELPERS (No alert/confirm)
+    // =========================================================================
+    function openModal(title, bodyHtml, footHtml) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').innerHTML = bodyHtml;
+      document.getElementById('modalFoot').innerHTML = footHtml || '<button class="btn btn-cyan" onclick="closeModal()">Жабу</button>';
+      document.getElementById('modalBackdrop').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.add('hidden');
+    }
+
+    function backdropClick(e) {
+      if (e.target && e.target.id === 'modalBackdrop') closeModal();
+    }
+
+    function askClearErrors() {
+      if (errorSet.size === 0) {
+        openModal('Қателер банкі бос', '<p>Қазір қателер банкінде ешбір сұрақ жоқ. Керемет!</p>');
+        return;
+      }
+      openModal(
+        'Қателер банкін тазалау',
+        `<p>Барлық <b>${errorSet.size}</b> қате сұрақты өшіргіңіз келе ме?</p>`,
+        `<button class="btn btn-ghost" onclick="closeModal()">Болдырмау</button>
+         <button class="btn btn-danger" onclick="confirmClearErrors()">Иә, тазалау</button>`
+      );
+    }
+
+    function confirmClearErrors() {
+      errorSet.clear();
+      saveStorage();
+      updateStats();
+      closeModal();
+    }
+
+    // =========================================================================
+    // 8. DASHBOARD RENDERING
+    // =========================================================================
+    const BLOCK_DESCS = [
+      'Жегалкин полиномы, PCNF, түйіндес функция, релелік схемалар (DNF/CNF), c16/c17 вентильдері, пікірлер.',
+      'Вентильдер (c31, c46), тавтология, толық жүйелер, Пирс жебесі (↓), Шеффер сызығы (|), импликациялар.',
+      'Вентильдер (c61, c62), PDNF/PCNF, терістеу формуласы, қанағаттандырылатын формулалар, Де Морган.',
+      'Коммутативтік/дистрибутивтік заңдар, Жегалкин полиномы, теңсіздіктер, релелік схемалар, конъюнкция.',
+      'Ақиқат кестелері, ассоциативтік заң, логикалық салдар, CNF, c105/c62 вентильдері, релелік схемалар.',
+      'Релелік схемалар, түйіндес функциялар, контрапозиция теоремасы, Жегалкин полиномы, c118 вентилі.'
+    ];
+
+    function updateStats() {
+      const pct = Math.round((solvedSet.size / DB.length) * 100);
+      document.getElementById('solvedVal').textContent = solvedSet.size;
+      document.getElementById('solvedPctLabel').textContent = `${pct}%`;
+      document.getElementById('solvedBar').style.width = `${pct}%`;
+      document.getElementById('errCountBadge').textContent = errorSet.size;
+      document.getElementById('bestExamVal').textContent = bestExam ? `${bestExam.correct}/${bestExam.total}` : '—';
+    }
+
+    function renderBlocksGrid() {
+      const html = [1, 2, 3, 4, 5, 6].map(b => {
+        const start = (b - 1) * 30 + 1;
+        const end = b * 30;
+        const qs = DB.filter(q => q.block === b);
+        const done = qs.filter(q => solvedSet.has(q.id)).length;
+        const pct = Math.round((done / qs.length) * 100);
+        const svgCnt = qs.filter(q => q.type !== 'text').length;
+        return `
+          <div class="card">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div class="card-top">
+                <span class="badge badge-violet">${b}-Блок • №${start}–${end}</span>
+                <span class="badge badge-cyan">🧩 ${svgCnt} схема</span>
+              </div>
+              <div class="card-title">${b}-Блок: Сұрақтар ${start}–${end} (${qs.length} сұрақ)</div>
+              <div class="card-desc">${BLOCK_DESCS[b - 1]}</div>
+              <div>
+                <div class="stat-label"><span>Прогресс</span><span>${done}/${qs.length} (${pct}%)</span></div>
+                <div class="progress-track"><div class="progress-fill" style="width:${pct}%;"></div></div>
+              </div>
+            </div>
+            <div class="card-btns">
+              <button class="btn btn-cyan" onclick="startBlock(${b}, false)">▶ Бастау</button>
+              <button class="btn btn-ghost" onclick="startBlock(${b}, true)">🔀 Аралас</button>
+            </div>
+          </div>`;
+      }).join('');
+      document.getElementById('blocksGrid').innerHTML = html;
+    }
+
+    function renderSchemesGrid() {
+      const relayQs = DB.filter(q => q.cat === 'relay');
+      const circuitQs = DB.filter(q => q.cat === 'circuit');
+      const allSvgQs = DB.filter(q => q.cat === 'relay' || q.cat === 'circuit');
+      const zhegQs = DB.filter(q => ['zhegalkin', 'normal', 'conjugate', 'truth'].includes(q.cat));
+      const engQs = DB.filter(q => ['english', 'laws'].includes(q.cat));
+
+      const packs = [
+        { key: 'all_svg', badge: `🧩 ${allSvgQs.length} сұрақ`, cls: 'badge-amber', title: 'Барлық Схемалар & Вентильдер', desc: 'Релелік схемалар (DNF / CNF) және IEEE логикалық вентильдері бар барлық визуалды сұрақтар.', list: allSvgQs },
+        { key: 'relay', badge: `⚡ ${relayQs.length} сұрақ`, cls: 'badge-cyan', title: 'Тек Релелік схемалар (DNF & CNF)', desc: 'Параллель (DNF) және тізбектей (CNF) релелік схемаларды оқу және формула бойынша таңдау.', list: relayQs },
+        { key: 'circuit', badge: `🔌 ${circuitQs.length} сұрақ`, cls: 'badge-violet', title: 'Тек Логикалық вентильдер (AND/OR/NOT)', desc: 'IEEE стандартты вентиль схемаларынан булева өрнек табу және кері тапсырмалар.', list: circuitQs },
+        { key: 'zheg', badge: `🧮 ${zhegQs.length} сұрақ`, cls: 'badge-green', title: 'Жегалкин, PCNF, PDNF, Түйіндес & Кесте', desc: 'Жегалкин полиномдары, кемел ДНФ/КНФ, түйіндес (conjugate) функциялар және ақиқат кестелері.', list: zhegQs },
+        { key: 'eng', badge: `💬 ${engQs.length} сұрақ`, cls: 'badge-cyan', title: 'Логика заңдары & Ағылшынша пікірлер', desc: 'Импликация (sufficient/necessary), терістеу, конъюнкция, тавтология, Шеффер/Пирс амалдары.', list: engQs },
+        { key: 'all180', badge: `⚡ 180 сұрақ`, cls: 'badge-amber', title: 'Толық 180 Сұрақ Марафон', desc: '1-ден 180-ге дейінгі бүкіл емтихан базасын толық өтіп шығу.', list: DB }
+      ];
+
+      document.getElementById('schemesGrid').innerHTML = packs.map(p => {
+        const done = p.list.filter(q => solvedSet.has(q.id)).length;
+        const pct = Math.round((done / Math.max(1, p.list.length)) * 100);
+        return `
+          <div class="card">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div class="card-top">
+                <span class="badge ${p.cls}">${p.badge}</span>
+                <span class="stat-sub">${done}/${p.list.length} (${pct}%)</span>
+              </div>
+              <div class="card-title">${p.title}</div>
+              <div class="card-desc">${p.desc}</div>
+              <div class="progress-track"><div class="progress-fill" style="width:${pct}%;"></div></div>
+            </div>
+            <div class="card-btns">
+              <button class="btn btn-cyan" onclick="startPack('${p.key}', false)">▶ Бастау</button>
+              <button class="btn btn-ghost" onclick="startPack('${p.key}', true)">🔀 Аралас</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderBank() {
+      const term = (document.getElementById('bankSearch')?.value || '').trim().toLowerCase();
+      const flt = document.getElementById('bankFilter')?.value || 'all';
+
+      const list = DB.filter(q => {
+        if (flt === 'b1' && q.block !== 1) return false;
+        if (flt === 'b2' && q.block !== 2) return false;
+        if (flt === 'b3' && q.block !== 3) return false;
+        if (flt === 'b4' && q.block !== 4) return false;
+        if (flt === 'b5' && q.block !== 5) return false;
+        if (flt === 'b6' && q.block !== 6) return false;
+        if (flt === 'relay' && q.cat !== 'relay') return false;
+        if (flt === 'circuit' && q.cat !== 'circuit') return false;
+        if (flt === 'zhegalkin' && !['zhegalkin', 'normal', 'conjugate'].includes(q.cat)) return false;
+        if (!term) return true;
+        const hay = `${q.id} ${q.q} ${q.formula || ''} ${q.ansText} ${CAT_LABELS[q.cat] || ''}`.toLowerCase();
+        return hay.includes(term);
+      });
+
+      document.getElementById('bankCount').textContent = `Көрсетілуде: ${list.length} / ${DB.length} сұрақ`;
+      const box = document.getElementById('bankList');
+
+      if (!list.length) {
+        box.innerHTML = '<div class="bank-card" style="text-align:center;color:var(--muted);">Сұрақ табылмады. Іздеу сөзін өзгертіп көріңіз.</div>';
+        return;
+      }
+
+      box.innerHTML = list.map(q => {
+        let qVis = '';
+        if (q.type === 'relay_q') qVis = `<div class="svg-stage">${renderRelaySVG(q.relay[0], q.relay[1], false)}</div>`;
+        if (q.type === 'circuit_q') qVis = `<div class="svg-stage">${renderCircuitSVG(q.circuit, false)}</div>`;
+
+        let ansVisual = '';
+        if (q.type === 'pick_relay') ansVisual = `<div class="svg-stage">${renderRelaySVG(q.relay[0], q.relay[1], false)}</div>`;
+        if (q.type === 'pick_circuit') ansVisual = `<div class="svg-stage">${renderCircuitSVG(q.cOpts[0], false)}</div>`;
+
+        return `
+          <div class="bank-card">
+            <div class="q-meta">
+              <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+                <span class="badge badge-violet">#${q.id}</span>
+                <span class="badge badge-cyan">${q.block}-Блок</span>
+                <span class="badge badge-amber">${CAT_LABELS[q.cat] || q.cat}</span>
+              </div>
+              ${solvedSet.has(q.id) ? '<span class="badge badge-green">✓ Игерілген</span>' : ''}
+            </div>
+            <div style="font-weight:800;color:#fff;font-size:0.96rem;">${escapeHtml(q.q)}</div>
+            ${q.formula ? `<div class="q-formula-box" style="padding:9px 12px;font-size:1rem;">${escapeHtml(q.formula)}</div>` : ''}
+            ${qVis}
+            <div class="bank-ans-yellow">
+              <div>✓ Дұрыс жауап: <span class="math-expr">${escapeHtml(q.ansText)}</span></div>
+              ${ansVisual}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderDashboard() {
+      updateStats();
+      renderBlocksGrid();
+      renderSchemesGrid();
+      if (activeTab === 'bank') renderBank();
+    }
+
+    // =========================================================================
+    // 9. CONTROLS (Tabs, Mode, Sound)
+    // =========================================================================
+    function switchTab(tab) {
+      Sound.click();
+      activeTab = tab;
+      ['blocks', 'schemes', 'exam', 'bank'].forEach(t => {
+        document.getElementById(`tab-${t}`).classList.toggle('active', t === tab);
+        document.getElementById(`panel-${t}`).classList.toggle('hidden', t !== tab);
+      });
+      if (tab === 'bank') renderBank();
+    }
+
+    function setMode(mode) {
+      Sound.click();
+      chosenMode = mode;
+      const gBtn = document.getElementById('modeGameBtn');
+      const sBtn = document.getElementById('modeStudyBtn');
+      const hint = document.getElementById('modeHint');
+      if (mode === 'game') {
+        gBtn.className = 'mode-btn active-game';
+        sBtn.className = 'mode-btn';
+        hint.innerHTML = '🔥 <b>Ойын режимі:</b> 45 сек таймер, жылдамдық бонусы және дұрыс жауап сериясы.';
+      } else {
+        sBtn.className = 'mode-btn active-study';
+        gBtn.className = 'mode-btn';
+        hint.innerHTML = '📚 <b>Жаттау режимі:</b> Таймерсіз, сұрақтар навигаторымен еркін қайталау.';
+      }
+    }
+
+    function toggleSound() {
+      Sound.enabled = !Sound.enabled;
+      const btn = document.getElementById('soundBtn');
+      if (Sound.enabled) {
+        btn.className = 'btn btn-sound-on';
+        btn.textContent = '🔊 Дыбыс: Қосулы';
+        Sound.click();
+      } else {
+        btn.className = 'btn btn-sound-off';
+        btn.textContent = '🔇 Дыбыс: Өшірулі';
+      }
+    }
+
+    // =========================================================================
+    // 10. QUIZ LAUNCHERS
+    // =========================================================================
+    function buildSessionItems(list) {
+      return list.map(q => {
+        const order = shuffle([0, 1, 2, 3]);
+        return {
+          q,
+          optOrder: order,
+          ansPos: order.indexOf(0) // index 0 in q.opts is always the exact correct answer
+        };
+      });
+    }
+
+    function startBlock(blockNum, isShuffle) {
+      let list = DB.filter(q => q.block === blockNum);
+      if (isShuffle) list = shuffle(list);
+      const start = (blockNum - 1) * 30 + 1;
+      const end = blockNum * 30;
+      launchQuiz(`${blockNum}-Блок (№${start}–${end})${isShuffle ? ' • Аралас' : ''}`, chosenMode, list, () => startBlock(blockNum, isShuffle));
+    }
+
+    function startPack(key, isShuffle) {
+      let list = [];
+      let title = '';
+      if (key === 'all_svg') { list = DB.filter(q => q.cat === 'relay' || q.cat === 'circuit'); title = '🧩 Схемалар & Вентильдер'; }
+      else if (key === 'relay') { list = DB.filter(q => q.cat === 'relay'); title = '⚡ Релелік схемалар (DNF & CNF)'; }
+      else if (key === 'circuit') { list = DB.filter(q => q.cat === 'circuit'); title = '🔌 Логикалық вентильдер'; }
+      else if (key === 'zheg') { list = DB.filter(q => ['zhegalkin', 'normal', 'conjugate', 'truth'].includes(q.cat)); title = '🧮 Жегалкин / PCNF / PDNF / Кесте'; }
+      else if (key === 'eng') { list = DB.filter(q => ['english', 'laws'].includes(q.cat)); title = '💬 Логика заңдары & Пікірлер'; }
+      else { list = DB.slice(); title = '⚡ Толық 180 Сұрақ Марафон'; }
+      if (isShuffle) { list = shuffle(list); title += ' • Аралас'; }
+      launchQuiz(title, chosenMode, list, () => startPack(key, isShuffle));
+    }
+
+    function startMarathon(isShuffle) {
+      startPack('all180', isShuffle);
+    }
+
+    function startErrorBank() {
+      if (errorSet.size === 0) {
+        openModal('Қателер банкі бос', '<p>Қазір қате сұрақтар жоқ. Тест өткен кезде қателескен сұрақтар осында автоматты түрде сақталады.</p>');
+        return;
+      }
+      const list = DB.filter(q => errorSet.has(q.id));
+      launchQuiz(`🔄 Қатемен жұмыс (${list.length} сұрақ)`, 'study', shuffle(list), startErrorBank);
+    }
+
+    function startExam() {
+      const list = shuffle(DB).slice(0, 30);
+      launchQuiz('🎓 Емтихан Симуляторы (30 сұрақ · 45 мин)', 'exam', list, startExam);
+    }
+
+    function launchQuiz(title, mode, list, restartFn) {
+      Sound.click();
+      clearInterval(session.timer);
+      session = {
+        active: true,
+        title,
+        mode,
+        items: buildSessionItems(list),
+        index: 0,
+        answers: {},
+        flags: new Set(),
+        score: 0,
+        streak: 0,
+        maxStreak: 0,
+        timer: null,
+        timeLeft: mode === 'exam' ? 2700 : (mode === 'game' ? 45 : 0),
+        restartFn
+      };
+
+      document.getElementById('dashboardView').classList.add('hidden');
+      document.getElementById('resultView').classList.add('hidden');
+      document.getElementById('quizView').classList.remove('hidden');
+
+      document.getElementById('quizTitle').textContent = title;
+      document.getElementById('streakPill').classList.toggle('hidden', mode !== 'game');
+      document.getElementById('scorePill').classList.toggle('hidden', mode === 'exam');
+      document.getElementById('timerPill').classList.toggle('hidden', mode === 'study');
+      document.getElementById('flagBtn').classList.toggle('hidden', mode !== 'exam');
+      document.getElementById('studyNavBox').classList.toggle('hidden', mode === 'game');
+
+      if (mode === 'exam') startExamTimer();
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // 11. TIMERS
+    // =========================================================================
+    function startQuestionTimer() {
+      clearInterval(session.timer);
+      session.timeLeft = 45;
+      const pill = document.getElementById('timerPill');
+      pill.className = 'hud-pill pill-timer';
+      pill.textContent = `⏱ ${session.timeLeft}с`;
+
+      session.timer = setInterval(() => {
+        session.timeLeft--;
+        pill.textContent = `⏱ ${session.timeLeft}с`;
+        if (session.timeLeft <= 10) pill.className = 'hud-pill pill-timer danger';
+        if (session.timeLeft <= 0) {
+          clearInterval(session.timer);
+          if (session.answers[session.index] === undefined) selectOption(-1);
+        }
+      }, 1000);
+    }
+
+    function startExamTimer() {
+      clearInterval(session.timer);
+      const pill = document.getElementById('timerPill');
+      pill.className = 'hud-pill pill-timer';
+      pill.textContent = `⏱ ${fmtMMSS(session.timeLeft)}`;
+
+      session.timer = setInterval(() => {
+        session.timeLeft--;
+        pill.textContent = `⏱ ${fmtMMSS(session.timeLeft)}`;
+        if (session.timeLeft <= 300) pill.className = 'hud-pill pill-timer danger';
+        if (session.timeLeft <= 0) {
+          clearInterval(session.timer);
+          finishQuiz();
+        }
+      }, 1000);
+    }
+
+    // =========================================================================
+    // 12. QUESTION RENDERING & INTERACTION
+    // =========================================================================
+    function renderQuestion() {
+      const item = session.items[session.index];
+      const q = item.q;
+      const total = session.items.length;
+      const chosen = session.answers[session.index];
+
+      document.getElementById('quizCounter').textContent = `Сұрақ ${session.index + 1} / ${total}`;
+      document.getElementById('quizProgressFill').style.width = `${((session.index + 1) / total) * 100}%`;
+      document.getElementById('streakPill').textContent = `🔥 ${session.streak}`;
+      document.getElementById('scorePill').textContent = `⭐ ${session.score} ұпай`;
+
+      document.getElementById('qIdBadge').textContent = `#${q.id}`;
+      document.getElementById('qBlockBadge').textContent = `${q.block}-Блок`;
+      document.getElementById('qCatBadge').textContent = CAT_LABELS[q.cat] || q.cat;
+      document.getElementById('qModeTag').textContent =
+        session.mode === 'exam' ? 'Емтихан режимі' :
+        session.mode === 'game' ? 'Ойын режимі' : 'Жаттау режимі';
+
+      const fBtn = document.getElementById('flagBtn');
+      if (session.mode === 'exam') {
+        const isFlagged = session.flags.has(session.index);
+        fBtn.textContent = isFlagged ? '🚩 Белгіленген' : '🚩 Белгілеу';
+        fBtn.style.borderColor = isFlagged ? '#f59e0b' : '';
+        fBtn.style.color = isFlagged ? '#fcd34d' : '';
+      }
+
+      document.getElementById('qText').textContent = q.q;
+
+      const fWrap = document.getElementById('qFormulaWrap');
+      if (q.formula) {
+        fWrap.textContent = q.formula;
+        fWrap.classList.remove('hidden');
+      } else {
+        fWrap.classList.add('hidden');
+      }
+
+      const vWrap = document.getElementById('qVisualWrap');
+      if (q.type === 'relay_q') {
+        vWrap.innerHTML = renderRelaySVG(q.relay[0], q.relay[1], false);
+        vWrap.classList.remove('hidden');
+      } else if (q.type === 'circuit_q') {
+        vWrap.innerHTML = renderCircuitSVG(q.circuit, false);
+        vWrap.classList.remove('hidden');
+      } else {
+        vWrap.innerHTML = '';
+        vWrap.classList.add('hidden');
+      }
+
+      const revealed = session.mode !== 'exam' && chosen !== undefined;
+      const grid = document.getElementById('optionsGrid');
+
+      grid.innerHTML = item.optOrder.map((origIdx, pos) => {
+        const rawOpt = q.opts[origIdx];
+        const isSvgOpt = q.optKind === 'relay' || q.optKind === 'circuit';
+        let cls = isSvgOpt ? 'opt-tile is-svg-opt' : `opt-tile opt-${pos}`;
+
+        if (session.mode === 'exam' && chosen === pos) {
+          cls += ' opt-exam-chosen';
+        } else if (revealed) {
+          if (pos === item.ansPos) cls += ' opt-correct';
+          else if (pos === chosen) cls += ' opt-wrong';
+          else cls += ' opt-dim';
+        }
+
+        if (isSvgOpt) {
+          const svgHtml = q.optKind === 'relay'
+            ? renderRelaySVG(rawOpt[0], rawOpt[1], true)
+            : renderCircuitSVG(rawOpt, true);
+          return `
+            <button class="${cls}" ${revealed ? 'disabled' : ''} onclick="selectOption(${pos})">
+              <div class="opt-svg-head">
+                <span class="opt-key">${LETTERS[pos]}</span>
+                <span style="font-size:0.75rem;color:#cbd5e1;font-weight:800;">${q.optKind === 'relay' ? (rawOpt[0] === 'DNF' ? 'Параллель (DNF)' : 'Тізбектей (CNF)') : 'Логикалық схема'}</span>
+              </div>
+              ${svgHtml}
+            </button>`;
+        }
+
+        return `
+          <button class="${cls}" ${revealed ? 'disabled' : ''} onclick="selectOption(${pos})">
+            <span class="opt-key">${LETTERS[pos]}</span>
+            <span class="opt-label math-expr">${escapeHtml(rawOpt)}</span>
+          </button>`;
+      }).join('');
+
+      // Feedback banner
+      const fb = document.getElementById('feedbackBar');
+      const fbMsg = document.getElementById('feedbackMsg');
+      if (revealed) {
+        fb.classList.remove('hidden');
+        const rightLetter = LETTERS[item.ansPos];
+        if (chosen === item.ansPos) {
+          fb.className = 'feedback-bar fb-ok';
+          fbMsg.innerHTML = '✅ Дұрыс жауап! Жарайсыз.';
+        } else if (chosen === -1) {
+          fb.className = 'feedback-bar fb-warn';
+          fbMsg.innerHTML = `⏰ Уақыт аяқталды! Дұрыс жауап: <b>${rightLetter}) ${escapeHtml(q.ansText)}</b>`;
+        } else {
+          fb.className = 'feedback-bar fb-err';
+          fbMsg.innerHTML = `❌ Қате! Дұрыс жауап: <b>${rightLetter}) ${escapeHtml(q.ansText)}</b>`;
+        }
+      } else {
+        fb.classList.add('hidden');
+      }
+
+      document.getElementById('prevBtn').disabled = session.index === 0;
+      document.getElementById('nextBtn').textContent = session.index === total - 1 ? 'Нәтиже 🏁' : 'Келесі →';
+
+      if (session.mode !== 'game') renderInlineNav();
+
+      if (session.mode === 'game') {
+        if (chosen === undefined) startQuestionTimer();
+        else clearInterval(session.timer);
+      }
+    }
+
+    function renderInlineNav() {
+      const done = Object.keys(session.answers).length;
+      document.getElementById('navSummary').textContent = `${done}/${session.items.length} жауап берілді`;
+      document.getElementById('navDots').innerHTML = session.items.map((it, i) => {
+        const a = session.answers[i];
+        let cls = 'nav-dot';
+        if (i === session.index) cls += ' cur';
+        if (a !== undefined) {
+          if (session.mode === 'exam') cls += ' picked';
+          else cls += (a === it.ansPos ? ' ok' : ' bad');
+        }
+        const flag = session.flags.has(i) ? '<span style="position:absolute;top:-5px;right:-4px;font-size:10px;">🚩</span>' : '';
+        return `<button class="${cls}" onclick="jumpToQ(${i})">${i + 1}${flag}</button>`;
+      }).join('');
+    }
+
+    function selectOption(pos) {
+      const item = session.items[session.index];
+
+      if (session.mode === 'exam') {
+        Sound.click();
+        session.answers[session.index] = pos;
+        renderQuestion();
+        return;
+      }
+
+      if (session.answers[session.index] !== undefined) return;
+      clearInterval(session.timer);
+      session.answers[session.index] = pos;
+
+      if (pos === item.ansPos) {
+        Sound.correct();
+        session.streak++;
+        if (session.streak > session.maxStreak) session.maxStreak = session.streak;
+        const speedBonus = session.mode === 'game' ? session.timeLeft * 10 : 0;
+        const streakBonus = Math.min(session.streak, 5) * 40;
+        session.score += 100 + speedBonus + streakBonus;
+        solvedSet.add(item.q.id);
+        errorSet.delete(item.q.id);
+      } else {
+        Sound.wrong();
+        session.streak = 0;
+        errorSet.add(item.q.id);
+      }
+      saveStorage();
+      renderQuestion();
+    }
+
+    function prevQ() {
+      if (session.index > 0) {
+        Sound.click();
+        session.index--;
+        renderQuestion();
+      }
+    }
+
+    function nextQ() {
+      Sound.click();
+      if (session.index < session.items.length - 1) {
+        session.index++;
+        renderQuestion();
+      } else {
+        if (session.mode === 'exam') askFinishQuiz();
+        else finishQuiz();
+      }
+    }
+
+    function jumpToQ(i) {
+      Sound.click();
+      session.index = i;
+      closeModal();
+      renderQuestion();
+    }
+
+    function toggleFlag() {
+      Sound.click();
+      if (session.flags.has(session.index)) session.flags.delete(session.index);
+      else session.flags.add(session.index);
+      renderQuestion();
+    }
+
+    function openMapModal() {
+      Sound.click();
+      const dots = session.items.map((it, i) => {
+        const a = session.answers[i];
+        let cls = 'nav-dot';
+        if (i === session.index) cls += ' cur';
+        if (a !== undefined) {
+          if (session.mode === 'exam') cls += ' picked';
+          else cls += (a === it.ansPos ? ' ok' : ' bad');
+        }
+        const flag = session.flags.has(i) ? '<span style="position:absolute;top:-5px;right:-4px;font-size:10px;">🚩</span>' : '';
+        return `<button class="${cls}" onclick="jumpToQ(${i})">${i + 1}${flag}</button>`;
+      }).join('');
+      openModal(
+        `🗺️ Сұрақтар картасы (${Object.keys(session.answers).length}/${session.items.length})`,
+        `<div class="nav-dots" style="max-height:52vh;">${dots}</div>`,
+        '<button class="btn btn-ghost" onclick="closeModal()">Жабу</button>'
+      );
+    }
+
+    function askExitQuiz() {
+      openModal(
+        'Тесттен шығу',
+        '<p>Басты бетке оралғыңыз келе ме? Ағымдағы тест сессиясы тоқтатылады.</p>',
+        `<button class="btn btn-ghost" onclick="closeModal()">Жалғастыру</button>
+         <button class="btn btn-danger" onclick="closeModal(); goHome();">Шығу</button>`
+      );
+    }
+
+    function askFinishQuiz() {
+      const done = Object.keys(session.answers).length;
+      const left = session.items.length - done;
+      openModal(
+        'Тестті аяқтау',
+        `<p>Жауап берілген сұрақтар: <b>${done} / ${session.items.length}</b>.${left > 0 ? `<br><span style="color:#fcd34d;">Жауапсыз қалғаны: ${left} сұрақ.</span>` : ''}</p>`,
+        `<button class="btn btn-ghost" onclick="closeModal()">Артқа</button>
+         <button class="btn btn-green" onclick="closeModal(); finishQuiz();">Аяқтау және тексеру</button>`
+      );
+    }
+
+    // =========================================================================
+    // 13. FINISH, RESULTS & REVIEW
+    // =========================================================================
+    function finishQuiz() {
+      clearInterval(session.timer);
+      session.active = false;
+
+      let correct = 0;
+      let curStreak = 0;
+      let bestStreak = 0;
+
+      session.items.forEach((it, idx) => {
+        const chosen = session.answers[idx];
+        if (chosen === it.ansPos) {
+          correct++;
+          curStreak++;
+          if (curStreak > bestStreak) bestStreak = curStreak;
+          solvedSet.add(it.q.id);
+          errorSet.delete(it.q.id);
+        } else {
+          curStreak = 0;
+          errorSet.add(it.q.id);
+        }
+      });
+
+      const total = session.items.length;
+      const pct = Math.round((correct / Math.max(1, total)) * 100);
+
+      if (session.mode === 'exam') {
+        session.score = correct * 100;
+        session.maxStreak = bestStreak;
+        if (!bestExam || correct > bestExam.correct) {
+          bestExam = { correct, total, pct };
+        }
+      }
+      saveStorage();
+
+      document.getElementById('quizView').classList.add('hidden');
+      document.getElementById('resultView').classList.remove('hidden');
+
+      document.getElementById('resCorrect').textContent = `${correct} / ${total}`;
+      document.getElementById('resPct').textContent = `${pct}%`;
+      document.getElementById('resScore').textContent = session.score;
+      document.getElementById('resStreak').textContent = `🔥 ${session.maxStreak}`;
+
+      const passed = session.mode === 'exam' ? correct >= 24 : pct >= 80;
+      document.getElementById('resEmoji').textContent = passed ? '🏆' : (pct >= 50 ? '💪' : '📚');
+      document.getElementById('resTitle').textContent = passed
+        ? 'Керемет! ≥80% межесінен сәтті өттіңіз!'
+        : (pct >= 50 ? 'Жақсы нәтиже, қателерді пысықтап алыңыз!' : 'Жаттау режимінде тағы қайталап көріңіз');
+      document.getElementById('resSub').textContent = `${session.title} • Нәтиже: ${pct}%`;
+
+      const wrongCount = total - correct;
+      const rwBtn = document.getElementById('retryWrongBtn');
+      if (wrongCount > 0) {
+        rwBtn.classList.remove('hidden');
+        rwBtn.textContent = `🔄 Қателерді қайта тапсыру (${wrongCount})`;
+      } else {
+        rwBtn.classList.add('hidden');
+      }
+
+      renderReview('all');
+
+      if (passed) {
+        Sound.finish();
+        launchConfetti();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderReview(filter) {
+      document.getElementById('revAllBtn').className = filter === 'all' ? 'btn btn-violet' : 'btn btn-ghost';
+      document.getElementById('revWrongBtn').className = filter === 'wrong' ? 'btn btn-danger' : 'btn btn-ghost';
+      document.getElementById('revAllBtn').style.padding = '6px 12px';
+      document.getElementById('revWrongBtn').style.padding = '6px 12px';
+
+      const rows = session.items
+        .map((it, idx) => ({ it, idx, chosen: session.answers[idx] }))
+        .filter(r => filter === 'all' || r.chosen !== r.it.ansPos);
+
+      const box = document.getElementById('reviewList');
+      if (!rows.length) {
+        box.innerHTML = '<div style="text-align:center;padding:24px;color:var(--green);font-weight:800;">Қате жоқ — 100% дұрыс! 🎉</div>';
+        return;
+      }
+
+      box.innerHTML = rows.map(({ it, idx, chosen }) => {
+        const q = it.q;
+        const ok = chosen === it.ansPos;
+        let qVis = '';
+        if (q.type === 'relay_q') qVis = `<div class="svg-stage">${renderRelaySVG(q.relay[0], q.relay[1], false)}</div>`;
+        if (q.type === 'circuit_q') qVis = `<div class="svg-stage">${renderCircuitSVG(q.circuit, false)}</div>`;
+
+        let rightVis = '';
+        if (q.type === 'pick_relay') rightVis = `<div class="svg-stage">${renderRelaySVG(q.relay[0], q.relay[1], false)}</div>`;
+        if (q.type === 'pick_circuit') rightVis = `<div class="svg-stage">${renderCircuitSVG(q.cOpts[0], false)}</div>`;
+
+        let userText = '<span style="color:#fcd34d;">Жауап берілмеді</span>';
+        if (chosen !== undefined && chosen >= 0) {
+          const origIdx = it.optOrder[chosen];
+          const chosenVal = q.optKind === 'text'
+            ? escapeHtml(q.opts[origIdx])
+            : (q.optKind === 'relay' ? `${q.opts[origIdx][0]} схемасы` : 'Логикалық схема');
+          userText = `<span style="color:${ok ? '#6ee7b7' : '#fca5a5'};font-weight:800;">${LETTERS[chosen]}) ${chosenVal}</span>`;
+        }
+
+        return `
+          <div class="bank-card" style="border-color:${ok ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.45)'};">
+            <div class="q-meta">
+              <span class="stat-sub">Сұрақ ${idx + 1} (Базада #${q.id} • ${q.block}-Блок)</span>
+              <span class="badge ${ok ? 'badge-green' : 'badge-rose'}">${ok ? '✅ Дұрыс' : '❌ Қате'}</span>
+            </div>
+            <div style="font-weight:800;color:#fff;font-size:0.95rem;">${escapeHtml(q.q)}</div>
+            ${q.formula ? `<div class="q-formula-box" style="padding:8px 12px;font-size:0.98rem;">${escapeHtml(q.formula)}</div>` : ''}
+            ${qVis}
+            <div style="font-size:0.86rem;padding-top:6px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px;">
+              <div><span style="color:var(--muted);">Сіздің жауабыңыз: </span>${userText}</div>
+              ${ok ? '' : `<div class="bank-ans-yellow"><div>✓ Дұрыс жауап (${LETTERS[it.ansPos]}): <span class="math-expr">${escapeHtml(q.ansText)}</span></div>${rightVis}</div>`}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function retryWrong() {
+      const wrongQs = session.items
+        .filter((it, idx) => session.answers[idx] !== it.ansPos)
+        .map(it => it.q);
+      if (!wrongQs.length) return;
+      launchQuiz(`🔄 Қатемен жұмыс (${wrongQs.length} сұрақ)`, 'study', wrongQs, session.restartFn);
+    }
+
+    function restartQuiz() {
+      if (typeof session.restartFn === 'function') session.restartFn();
+      else goHome();
+    }
+
+    function goHome() {
+      clearInterval(session.timer);
+      session.active = false;
+      document.getElementById('quizView').classList.add('hidden');
+      document.getElementById('resultView').classList.add('hidden');
+      document.getElementById('dashboardView').classList.remove('hidden');
+      renderDashboard();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // 14. CANVAS CONFETTI
+    // =========================================================================
+    function launchConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const colors = ['#38bdf8', '#8b5cf6', '#10b981', '#f59e0b', '#fde047', '#ec4899'];
+      const pieces = Array.from({ length: 125 }, () => ({
+        x: Math.random() * canvas.width,
+        y: -20 - Math.random() * 240,
+        w: 6 + Math.random() * 6,
+        h: 8 + Math.random() * 8,
+        vx: (Math.random() - 0.5) * 4.5,
+        vy: 3 + Math.random() * 4.6,
+        rot: Math.random() * Math.PI * 2,
+        vr: (Math.random() - 0.5) * 0.22,
+        c: colors[Math.floor(Math.random() * colors.length)]
+      }));
+      let tick = 0;
+      function step() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vr;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.fillStyle = p.c;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+        });
+        tick++;
+        if (tick < 165) requestAnimationFrame(step);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // =========================================================================
+    // 15. KEYBOARD SHORTCUTS & GLOBAL EXPORTS
+    // =========================================================================
+    document.addEventListener('keydown', e => {
+      if (!session.active) return;
+      if (!document.getElementById('modalBackdrop').classList.contains('hidden')) {
+        if (e.key === 'Escape') closeModal();
+        return;
+      }
+      const k = e.key.toLowerCase();
+      if (k === '1' || k === 'a') selectOption(0);
+      else if (k === '2' || k === 'b') selectOption(1);
+      else if (k === '3' || k === 'c') selectOption(2);
+      else if (k === '4' || k === 'd') selectOption(3);
+      else if (k === 'enter' || k === ' ') {
+        if (session.answers[session.index] !== undefined || session.mode === 'exam') {
+          e.preventDefault();
+          nextQ();
+        }
+      } else if (k === 'arrowright') nextQ();
+      else if (k === 'arrowleft') prevQ();
+    });
+
+    Object.assign(window, {
+      goHome,
+      toggleSound,
+      setMode,
+      switchTab,
+      startBlock,
+      startPack,
+      startMarathon,
+      startErrorBank,
+      askClearErrors,
+      confirmClearErrors,
+      startExam,
+      renderBank,
+      selectOption,
+      prevQ,
+      nextQ,
+      jumpToQ,
+      toggleFlag,
+      openMapModal,
+      askExitQuiz,
+      askFinishQuiz,
+      finishQuiz,
+      renderReview,
+      retryWrong,
+      restartQuiz,
+      closeModal,
+      backdropClick
+    });
+
+    // Boot
+    loadStorage();
+    renderDashboard();
+  </script>
+</body>
+</html>
